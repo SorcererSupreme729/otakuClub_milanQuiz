@@ -1,0 +1,86 @@
+{
+    "hp": {
+        "Team 1": 4000,
+        "Team 2": 4000,
+        "Team 3": 4000,
+        "Team 4": 4000,
+        "Team 5": 4100,
+        "Team 6": 3800,
+        "Team 7": 4300,
+        "Team 8": 4000
+    },
+    "board": {
+        "Quotes": {
+            "200": true,
+            "400": true,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        },
+        "Pee Pee poo poo hard": {
+            "200": true,
+            "400": true,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        },
+        "I can't read": {
+            "200": true,
+            "400": true,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        },
+        "Where is Zoro?": {
+            "200": false,
+            "400": false,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        },
+        "Where are the pixels?????": {
+            "200": true,
+            "400": true,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        },
+        "Truck Kun's hitlist": {
+            "200": true,
+            "400": true,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        },
+        "Inumaki's Spotify playlist": {
+            "200": true,
+            "400": true,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        },
+        "Chika Fujiwara photo": {
+            "200": true,
+            "400": true,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        },
+        "Japanese Culture": {
+            "200": true,
+            "400": true,
+            "600": true,
+            "800": true,
+            "1000": true,
+            "1500": true
+        }
+    }
+}
