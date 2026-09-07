@@ -180,6 +180,30 @@ div[role="dialog"] {
     border: 1px solid rgba(183, 32, 46, 0.4);
     box-shadow: 0 0 50px rgba(139, 0, 0, 0.35);
 }
+
+[data-testid="stMain"] div[data-testid="stHorizontalBlock"]:first-of-type {
+    align-items: stretch !important;
+}
+
+[data-testid="stMain"] div[data-testid="stHorizontalBlock"]:first-of-type div[data-testid="stColumn"] {
+    height: auto !important;
+    min-height: 90px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 6px !important;
+}
+
+/* Fix header text wrapping and spacing */
+[data-testid="stMain"] div[data-testid="stHorizontalBlock"]:first-of-type div[data-testid="stColumn"] p,
+[data-testid="stMain"] div[data-testid="stHorizontalBlock"]:first-of-type div[data-testid="stColumn"] span {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+}
+
 </style>
 """,
         unsafe_allow_html=True,

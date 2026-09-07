@@ -23,6 +23,7 @@ st.set_page_config(
 from quiz.config import (
     TEAMS,
     ADMIN_PASSWORD,
+    HOSTER_PASSWORD,
     TEAM_PASSWORDS,
     THEME_IMAGE,
 )
@@ -64,9 +65,13 @@ if st.session_state.mode is None:
         choice = st.selectbox("Who are you?", roles, label_visibility="collapsed")
 
         if choice == "Hoster":
+            pw = st.text_input("Enter Hoster Password", type="password")
             if st.button("Enter the Culling Game", use_container_width=True):
-                st.session_state.mode = "hoster"
-                st.rerun()
+                if pw == HOSTER_PASSWORD:
+                    st.session_state.mode = "hoster"
+                    st.rerun()
+                else:
+                    st.error("Incorrect Cursed Energy Signature (Wrong Hoster Password).")
         else:
             pw = st.text_input("Enter Password", type="password")
             if st.button("Authenticate", use_container_width=True):
@@ -117,4 +122,141 @@ if st.session_state.mode != "admin":
 
 # ── 6. Main App (post-login) ──────────────────────────────────────────────────
 render_sidebar()
-render_board()
+
+def render_rules():
+    """Renders the global rules tab visible to all players and admins."""
+    st.markdown("<h1 style='color: #b7202e; font-family: Cinzel, serif; text-align: center;'>📜 Rules of Engagement</h1>", unsafe_allow_html=True)
+    
+    st.markdown("""
+    ### ⚙️ Game Setup
+
+    * **Teams:** 8 (4–5 players per team)
+    * **HP:** Starts at 4,000 HP (Maximum limit: 4,000 HP)
+    * **Questions:** 9 Sections. Tiers range from 200 to 1,500 points.
+    * **Total Points Available:** 40,500
+    """)
+
+    st.markdown("""
+    ### 📜 General Rules
+
+    1. **Buzz-In:** The first team to buzz in gets the first opportunity to answer.
+    2. **If No Team Answers:** The next question will be selected by the team immediately following the question-selecting team in the MILAN/Menti ranking.
+    3. **Correct Answers:** You may deal damage equal to the question's point value to *any* opposing team.
+    4. **Incorrect Answers:** You lose HP equal to the question's point value.
+    """)
+
+    st.markdown("""
+    ### ⚔️ Damage & Combat Mechanics
+
+    5. **Consecutive Damage Multiplier:** If a team takes damage on consecutive turns, incoming damage reduces by 0.1x per turn (Min: 0.5x). *(Progression: 1.0x → 0.9x → 0.8x → 0.7x → 0.6x → 0.5x)*. Resets to 1.0x after one complete turn of no damage. *(Exception: Does not apply to 1,500-point questions).*
+    6. **Player Sacrifice (Inactivity):** If a team doesn't answer for *n−1* consecutive questions, they must sacrifice one player to remain in the game. Revived players cannot participate in team discussions.
+    7. **Team Elimination:** If a team loses all of its players, they are eliminated.
+    8. **Eliminating a Team (Bounty):**
+       * If the defeated team *had* sacrificed players: All of those sacrificed players are immediately brought back.
+       * If the defeated team *had no* sacrificed players: The attacking team receives one free spin of the Normal Wheel.
+    """)
+
+    st.markdown("""
+    ### 🩸 Sacrifice Mechanics
+
+    9. **Reviving a Player:** Cost = `min(25% of current HP, 400 HP)`. Must have enough HP to pay the full cost.
+    10. **Buy a Wheel Spin:** Cost = `max(5% of current HP, 100 HP)`. Must have enough HP to pay the full cost.
+    11. **Item Limit:** A team can receive a maximum of 5 items through sacrifice mechanics.
+    """)
+
+    st.markdown("""
+    ### 💡 Hints & Question Mechanics
+
+    12. **Purchasing a Hint:** After buzzing in, sacrifice HP for a hint. Cost = **50% of the tier value** (e.g., 200pt → 100 HP).
+    13. **No Point Transfers:** HP/points cannot be transferred between teams (except via specific items).
+    """)
+
+    st.markdown("""
+    ### 🔥 Streaks & Special Buffs
+
+    14. **Three-Question Streak:** 3 correct answers in a row = 1 Free Wheel Spin (Normal or Hell).
+    15. **Last Stand Buff:** If only 1 player remains in a team, they gain **+500 HP** for every correct answer (in addition to normal effects).
+    """)
+
+    st.markdown("""
+    ### 🎒 Items & 🎡 Wheel Mechanics
+
+    16. **Using Items:** Use immediately or store in inventory (unless restricted).
+    17. **Item Trades:** All item trades must be discussed with and approved by Kogane.
+    18. **Special Wheel Questions:** Certain questions award a Normal Wheel spin (if correct) or force a Hell Wheel spin (if incorrect).
+    """)
+
+    st.markdown("""
+    ### 👑 Leader & Comeback Mechanics
+
+    19. **First-Place Penalty:** The 1st place team takes **20% increased damage** (1.2x) from attacks. 
+    20. **Boss Bounty:** Eliminating the 1st place team awards **2 Normal Wheel spins** instead of 1.
+    """)
+
+    st.markdown("""
+    ### 📊 Quick Reference
+
+    | Mechanic | Rule |
+    | :--- | :--- |
+    | **Starting / Max HP** | 4,000 HP |
+    | **Question Tiers** | 200–1,500 |
+    | **Correct Answer** | Deal tier damage to an opposing team |
+    | **Wrong Answer** | Lose tier damage |
+    | **Consecutive Damage** | Multiplier decreases by 0.1, min 0.5x (Resets after 1 safe turn) |
+    | **3 Correct in a Row** | Free Normal Wheel spin |
+    | **No Answer for n−1 Qs**| Sacrifice 1 player |
+    | **Eliminate a Team** | Revive sacrificed players OR free Normal Wheel spin |
+    | **Hint** | Costs 50% of question tier |
+    | **Revive Player** | Costs min(25% HP, 400 HP) |
+    | **Wheel Spin (Sacrifice)**| Costs max(5% HP, 100 HP) |
+    | **Top HP Team** | Takes 20% increased damage |
+    | **Eliminate Top Team** | 2 Normal Wheel spins |
+    | **Last Stand** | +500 HP per correct answer (1 player remaining) |
+    """)
+
+def render_team_dashboard(team_name):
+    """Renders the isolated view for teams (No Jeopardy Board)."""
+    st.markdown(
+        f"<h1 style='color: #b7202e; font-family: Cinzel, serif; text-align: center;'>🗡️ {team_name} Terminal</h1>", 
+        unsafe_allow_html=True
+    )
+    
+    current_hp = st.session_state.hp[team_name]
+    
+    # 🔥 UPDATED RANKING LOGIC (Handles ties perfectly)
+    # This finds all unique HP scores. If everyone is at 4000, 4000 is officially Rank 1.
+    unique_hps = sorted(list(set(st.session_state.hp.values())), reverse=True)
+    rank = unique_hps.index(current_hp) + 1
+    
+    # Display Stats
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(f"<h3 style='color: #c9a0a0;'>🏆 Current Rank: #{rank}</h3>", unsafe_allow_html=True)
+    with col2:
+        st.markdown(f"<h3 style='color: #c9a0a0;'>🩸 Cursed Energy: {current_hp} HP</h3>", unsafe_allow_html=True)
+    
+    st.divider()
+    st.markdown("<h3 style='color: #b7202e; font-family: Cinzel, serif;'>🎒 Cursed Inventory (Items)</h3>", unsafe_allow_html=True)
+    
+    # Items display
+    items = st.session_state.get("items", {}).get(team_name, [])
+    if not items:
+        st.info("Your inventory is empty. Survive rounds to claim artifacts.")
+    else:
+        for item in items:
+            st.markdown(f"- **{item}**")
+
+# ── Role-Based Routing ──
+if st.session_state.mode in ["admin", "hoster"]:
+    tab1, tab2 = st.tabs(["Culling Game Board", "Rules of Engagement"])
+    with tab1:
+        render_board()
+    with tab2:
+        render_rules()
+        
+elif st.session_state.mode in TEAMS:
+    tab1, tab2 = st.tabs(["Team Dashboard", "Rules of Engagement"])
+    with tab1:
+        render_team_dashboard(st.session_state.mode)
+    with tab2:
+        render_rules()

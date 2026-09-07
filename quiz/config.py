@@ -45,6 +45,7 @@ TEAM_COLORS = [
 
 # ── Credentials ──────────────────────────────────────────────────────────────
 ADMIN_PASSWORD = "goatakuclub@milan2026"
+HOSTER_PASSWORD = "open@thegates2026"
 
 TEAM_PASSWORDS = {
     "Team 1": "hollow@purple2026",

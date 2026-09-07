@@ -27,7 +27,7 @@
             "1500": true
         },
         "I can't read": {
-            "200": false,
+            "200": true,
             "400": true,
             "600": true,
             "800": true,
@@ -82,5 +82,15 @@
             "1000": true,
             "1500": true
         }
+    },
+    "items": {
+        "Team 1": [],
+        "Team 2": [],
+        "Team 3": [],
+        "Team 4": [],
+        "Team 5": [],
+        "Team 6": [],
+        "Team 7": [],
+        "Team 8": []
     }
 }

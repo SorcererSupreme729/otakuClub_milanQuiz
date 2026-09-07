@@ -7,7 +7,7 @@ credentials file generator.
 
 import streamlit as st
 
-from quiz.config import MAX_HP, ADMIN_PASSWORD, TEAM_PASSWORDS, TEAMS
+from quiz.config import MAX_HP, ADMIN_PASSWORD, HOSTER_PASSWORD, TEAM_PASSWORDS, TEAMS
 from quiz.state import save_state
 
 
@@ -102,6 +102,10 @@ def generate_credentials_file() -> str:
         "",
         "⛩️ COLONY OVERSEER (ADMIN) PASSWORD:",
         ADMIN_PASSWORD,
+        "",
+        "----------------------------------------",
+        "🗝️ HOSTER PASSWORD:",
+        HOSTER_PASSWORD,
         "",
         "----------------------------------------",
         "🩸 TEAM PASSWORDS:",

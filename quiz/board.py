@@ -83,33 +83,28 @@ def _render_category_header(category: str) -> None:
         text-align: center;
         background: rgba(183, 32, 46, 0.08);
         border-bottom: 2px solid rgba(183, 32, 46, 0.5);
-        height: 52px;
-        min-height: 52px;
-        max-height: 52px;
+        min-height: 90px;
+        height: auto;
         width: 100%;
         margin: 0;
-        padding: 6px 4px;
+        padding: 14px 6px;
         box-sizing: border-box;
-        overflow: hidden;
     ">
         <span style="
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             color: #c9a0a0;
             text-transform: uppercase;
-            font-size: 0.90rem;
-            line-height: 1.1;
+            font-size: 0.85rem;
+            line-height: 1.2;
             display: block;
             width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            word-wrap: break-word;
+            word-break: break-word;
         ">{category}</span>
     </div>
     """
 
     st.markdown(header_html, unsafe_allow_html=True)
-
 
 def _render_tier_buttons(category: str) -> None:
     """Renders active or disabled buttons for every tier in a category column."""
