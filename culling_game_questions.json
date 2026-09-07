@@ -1,0 +1,542 @@
+{
+    "quiz_title": "CULLING GAME - MILAN QUIZ EDITION",
+    "media_type_options": [
+        "paragraph",
+        "photo",
+        "audio",
+        "video"
+    ],
+    "categories": [
+        {
+            "name": "QUOTES",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "\"If the king doesn’t move, then his subjects won’t follow.\" Which character famously stated this rule of leadership?",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "Lelouch vi Britannia",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "lelouch.webp"
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        },
+        {
+            "name": "PEE PEE POO POO HARD",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        },
+        {
+            "name": "I CAN'T READ",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        },
+        {
+            "name": "WHERE IS ZORO?",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        },
+        {
+            "name": "WHERE ARE THE PIXELS?????",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        },
+        {
+            "name": "TRUCK KUN'S HITLIST",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        },
+        {
+            "name": "INUMAKI'S SPOTIFY PLAYLIST",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        },
+        {
+            "name": "CHIKA FUJIWARA PHOTO",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        },
+        {
+            "name": "JAPANESE CULTURE",
+            "questions": [
+                {
+                    "hp_value": 200,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 400,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 600,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 800,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1500,
+                    "question_text": "",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                }
+            ]
+        }
+    ]
+}
