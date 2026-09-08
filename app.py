@@ -113,6 +113,7 @@ def _sync_watcher() -> None:
         if loaded:
             st.session_state.hp = loaded["hp"]
             st.session_state.board = loaded["board"]
+            st.session_state["items"] = loaded["items"]
         st.rerun()
 
 # Only run the auto-poller for non-admin sessions to avoid fighting with

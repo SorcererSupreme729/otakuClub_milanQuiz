@@ -163,8 +163,22 @@ def _render_team_sidebar(logged_in_team: str | None) -> None:
         st.header("🩸 Viewer")
         st.caption("Live cursed energy — read only")
 
+    st.caption("Live standings")
     st.divider()
-    for team, color in zip(TEAMS, TEAM_COLORS):
+
+    color_map = dict(zip(TEAMS, TEAM_COLORS))
+    ranked = sorted(TEAMS, key=lambda team: st.session_state.hp[team], reverse=True)
+    badges = ["🥇", "🥈", "🥉"] + [f"**#{i}**" for i in range(4, len(TEAMS) + 1)]
+
+    for badge, team in zip(badges, ranked):
+        color = color_map[team]
+        st.markdown(
+            f"<div style='font-family: Rajdhani, sans-serif; font-size: 0.8rem; "
+            f"color: #8a4a4a; margin-top: 10px; margin-bottom: -6px;'>"
+            f"{badge}&nbsp;&nbsp;<span style='color:{color}; font-weight:700;'>{team}</span>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
         st.markdown(
             hp_bar_html(team, st.session_state.hp[team], color),
             unsafe_allow_html=True,
