@@ -15,54 +15,54 @@
                     "question_text": "\"If the king doesn’t move, then his subjects won’t follow.\" Which character famously stated this rule of leadership?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "Lelouch vi Britannia",
+                    "answer": "Lelouch Vi Britannia",
                     "answer_media_type": "photo",
                     "answer_media_url": "lelouch.webp"
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "",
+                    "question_text": "The Quote “A True Warrior Doesn’t Need a Sword” is said by whom and in which episode of this anime?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Thors, 4th Episode.",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "thors.jpg"
                 },
                 {
                     "hp_value": 600,
-                    "question_text": "",
+                    "question_text": "Who said the quote and in which anime:\n“There's something comforting facing death like this, wouldn't you agree? It's all that matters, nothing else seems to exist outside my pure instinct to survive. Rank, personal history, birth, race, sex, the name given to you; it's all meaningless, this is the only thing that's real, to fight on behalf of my own life and nothing else. I've never felt so complete; I guess you could say I've finally arrived.\"\n\nHint: this is said by “Hitler”.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "King Bradley from FMAB.",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "bradley.webp"
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
+                    "question_text": "“There is no paradise for you to escape to.” Which anime is this quote from?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Berserk",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "berserk.jpg"
                 },
                 {
                     "hp_value": 1000,
-                    "question_text": "",
+                    "question_text": "Who said: “Everybody I’ve met was all the same. Drinking, women, worshiping God, even family.”",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Kenny Ackerman",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "kennyack.webp"
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
+                    "question_text": "Who said this: “The greatest robots are the ones who can feel.”",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Dr.Tenma from Pluto",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "tenma.webp"
                 }
             ]
         },
@@ -71,55 +71,55 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "In this famous scene from Jujutsu Kaisen, approximately how many frames does Naoya Zenin's famous hair-flip scene last?",
+                    "question_media_type": "photo",
+                    "question_media_url": "naoya.gif",
+                    "answer": "24 frames, exactly like his Projection Sorcery Technique!",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
-                    "hp_value": 400,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
-                },
+    "hp_value": 400,
+    "question_text": "Which of the following did Kira say to reveal his identity?\n\n\n\n1.)My name is Yoshikage Kira. I'm 33 years old. My house is in the northeast section of Morioh, where all the villas are, and I am not married. I work as an employee for the Kame Yu department stores, and I get home every day by 8 PM at the latest. I don't smoke, but I occasionally drink. I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what. After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning. Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up. I'm trying to explain that I'm a person who wishes to live a very quiet life. I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night. That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I wouldn't lose to anyone.\n\n\nOr\n\n2.)Yes, my real name is Kira Yoshikage.",
+    "question_media_type": "paragraph",
+    "question_media_url": "",
+    "answer": "My name is Yoshikage Kira. I'm 33 years old. My house is in the northeast section of Morioh, where all the villas are, and I am not married. I work as an employee for the Kame Yu department stores, and I get home every day by 8 PM at the latest. I don't smoke, but I occasionally drink. I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what. After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning. Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up. I'm trying to explain that I'm a person who wishes to live a very quiet life. I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night. That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I wouldn't lose to anyone.",
+    "answer_media_type": "photo",
+    "answer_media_url": "kirayo.jpg"
+},
                 {
                     "hp_value": 600,
-                    "question_text": "",
+                    "question_text": "These four fundamental techniques form the foundation of Nen training in Hunter × Hunter. Name these four techniques.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Ten (Envelop/ Shroud)\nZetsu (Suppress/ Null)\nRen (Refine/ Enhance)\nHatsu (Release/ Act)",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "hxh.webp"
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
+                    "question_text": "In JoJo’s Bizarre Adventure, this Stand, wielded by Vanilla Ice, is responsible for killing Muhammad Avdol (also known as “Abdul”) and Iggy during the battle inside Dio's mansion. Name the stand.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Cream",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "cream.webp"
                 },
                 {
                     "hp_value": 1000,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "In Evangelion, approximately how long do Asuka and Rei stand silently together in the elevator before speaking? (get within 5 seconds).\nAlso, what episode did this happen in? (BONUS Question, Reward: Wheel Spin)",
+                    "question_media_type": "photo",
+                    "question_media_url": "Evangelion.jpg",
+                    "answer": "About 53 seconds & episode 22",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
+                    "question_text": "Name all anime 😉 (rules to be decided)",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "Various / Rule-dependent",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 }
@@ -130,39 +130,39 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "",
+                    "question_text": "The author of X is a very big fan of the Star Wars franchise. In the anime X he is seen naming places as references to Star Wars, for example - Tatooin (Tatooine) Station, Nabu (Naboo) Junior High etc. This led the fans to speculate theories on what is the real identity of the villain of X as the main villain is also limited to his suit similar to Darth Vader in Star Wars.\nIdentify X.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Bleach",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "bleach.webp"
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "",
+                    "question_text": "Saito Musashibo Benkei, popularly known as Benkei, was a legendary warrior monk during the Heian period of Japan, known for his combat skills, size and his signature weapon. He famously died in defiance and resilience, supported by his signature weapon on his side while fighting Yorimoto, to protect his companion.\nA well-known character from the Big 3 is heavily inspired by Benkei in many ways, one of which is that both died standing.\nID the character and the way both died.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Edward Newgate (Whitebeard) from One Piece; died standing upright after taking massive damage.",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "whitebeard.webp"
                 },
                 {
                     "hp_value": 600,
-                    "question_text": "",
+                    "question_text": "X is a demonic figure in Japanese mythology. Described to be a man of inhuman strength, X appears to have two faces and eight limbs: two arms and two legs for each face.\nX was a human who had an incredible amount of strength. It was a herculean task for him to get defeated. After his death he turned into a demonic figure as described and his abilities were too strong for his body to be fully destroyed as a result of which certain parts of his body remained.\nID X.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Sukuna (Ryomen Sukuna)",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "sukuna.jpg"
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
+                    "question_text": "After airing in 2019, this clip from the ending of a famous anime went viral, with fans all over the world copying the actions of the character in the clip and posting the videos on social media. Other social media users took the clip and paired it with other music, making remixes. It is likely that the reason the clip got so popular was because it used an animation technique called rotoscoping, which made the movements of the character very realistic. Considering the clip, this technique was probably very hard due to the amount of movement.\nWhat am I talking about?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Chika Dance (Chika Fujiwara's ending dance from Kaguya-sama: Love Is War)",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "chikadance.jpeg"
                 },
                 {
                     "hp_value": 1000,
@@ -189,55 +189,55 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Everyone in Luffy’s crew slept. Zoro drank too much and couldn't wake up in the morning. By the time he woke up, he didn't find anyone on the ship. He wandered and reached a hi-fi-looking, very tall tower that people around were referring to as some arena. Which animé universe did Zoro reach?",
+                    "question_media_type": "photo",
+                    "question_media_url": "zoro1.png",
+                    "answer": "Heaven's Arena, Hunter x Hunter",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Nami advised Zoro to use a cloth map she made for him, especially. But he used it to wipe and clean his sword. Now he got lost and came to a random place that looks otherworldly, which is ___?",
+                    "question_media_type": "photo",
+                    "question_media_url": "zoro2.png",
+                    "answer": "Shinigami realm/world, Death Note",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 600,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "This time, Zoro got lost from the crew in the desert kingdom of Alabasta and reached the outskirts of an ancient city where he is resting on the roof of an evil-aura-releasing castle. Where is this place?",
+                    "question_media_type": "photo",
+                    "question_media_url": "zoro3.png",
+                    "answer": "Dio's Mansion, JoJo's Bizarre Adventure: Stardust Crusaders",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Zoro is lost again. This time, in a place very “isolated”. Can you guess from which underrated classic sci-fi animé this location is? And the name of the place?",
+                    "question_media_type": "photo",
+                    "question_media_url": "zoro4.png",
+                    "answer": "Kamine Island, Code Geass",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1000,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Zoro gave up trying to find where he is? Do you want to try?",
+                    "question_media_type": "photo",
+                    "question_media_url": "zoro6.png",
+                    "answer": "Church of Leto, Fullmetal Alchemist (Brotherhood)",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Zoro lost his way and reached an iconic place. Guess the place!",
+                    "question_media_type": "photo",
+                    "question_media_url": "zoro7.png",
+                    "answer": "The Sword of Akasha, Code Geass",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 }
@@ -248,46 +248,46 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Identify this heavily pixelated/glitched character/scene.",
+                    "question_media_type": "photo",
+                    "question_media_url": "LightUsingNote.jpg",
+                    "answer": "Light using the death note",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Identify this heavily pixelated/glitched character/scene.",
+                    "question_media_type": "photo",
+                    "question_media_url": "Johan.jpg",
+                    "answer": "Johan Liebert pointing a gun",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 600,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Identify this heavily pixelated/glitched character/scene.",
+                    "question_media_type": "photo",
+                    "question_media_url": "RabbitsEatingSubaru.png",
+                    "answer": "Rabbits eating Subaru",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Identify this heavily pixelated/glitched character/scene.",
+                    "question_media_type": "photo",
+                    "question_media_url": "smtgDragonBall.jpg",
+                    "answer": "Super Saiyan Goku vs Freiza",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1000,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Identify this heavily pixelated/glitched character/scene.",
+                    "question_media_type": "photo",
+                    "question_media_url": "Netero.jpg",
+                    "answer": "during Netero's fight with Meruem",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
@@ -307,55 +307,55 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "",
+                    "question_text": "What is the exclusive snack that only appears when the vending machine protagonist uses his \"special menu\" ability in the fantasy world?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Pocky (/Pocky Sticks)",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "vendiman.jpg"
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "",
+                    "question_text": "How many toads did Kazuma kill in his first quest?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Two",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "toads.jpeg"
                 },
                 {
                     "hp_value": 600,
-                    "question_text": "",
+                    "question_text": "Name any 6 out of the 8 members of the Octagram.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Guy Crimson, Milim Nava, Ramiris, Dagruel, Luminous Valentine, Dino, Leon Cromwell, Rimuru Tempest",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "octagram.avif"
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
+                    "question_text": "Before Season 3 of the anime began, how many times did Subaru Natsuki, from Re: ZERO, die in total across the first two seasons? (Guess within +-2)",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "17",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "subaru.webp"
                 },
                 {
                     "hp_value": 1000,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Name them all. (Points only if you can name them all)",
+                    "question_media_type": "photo",
+                    "question_media_url": "eminence.png",
+                    "answer": "Lambda, Omega, Eta, Gamma, Alpha, Beta, Nu, Delta, Zeta",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
+                    "question_text": "to be added",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "to be added",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 }
@@ -366,55 +366,55 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "question_text": "Guess the anime:",
+                    "question_media_type": "audio",
+                    "question_media_url": "bgs.mp3",
+                    "answer": "Rascal Does Not Dream of Bunny Girl Senpai",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "bgs.jpg"
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "question_text": "Guess the anime:",
+                    "question_media_type": "audio",
+                    "question_media_url": "nge.mp3",
+                    "answer": "Neon Genesis Evangelion",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "nge.jpeg"
                 },
                 {
                     "hp_value": 600,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "question_text": "Guess the anime:",
+                    "question_media_type": "audio",
+                    "question_media_url": "jgw.m4a",
+                    "answer": "JoJo Golden Wind",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "jgw.jpeg"
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "question_text": "Guess the anime:",
+                    "question_media_type": "audio",
+                    "question_media_url": "tbhx.mp3",
+                    "answer": "To Be Hero X",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "tbhx.webp"
                 },
                 {
                     "hp_value": 1000,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "question_text": "Guess the anime:",
+                    "question_media_type": "audio",
+                    "question_media_url": "ngnl.mp3",
+                    "answer": "No Game No Life",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "ngnl.png"
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "The singer of this anime song made her professional wrestling debut in 2025 and won which championship?",
+                    "question_media_type": "audio",
+                    "question_media_url": "lastaudio.mp3",
+                    "answer": "DDT Ironman Heavymetalweight Championship {Also accepted: Heavymetalweight Championship}",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 }
@@ -425,55 +425,64 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Our Chika is sooo emotional after seeing Ichigo-chan confess her love to Hiro-kun—what a dramatic twist in their love triangle! Will Hiro finally choose Ichigo-san, or will Zero Two-chan win this love war? Now then… Can you answer the name of the episode where this epic turn of events first happens~?",
+                    "question_media_type": "photo",
+                    "question_media_url": "chika1.jpg",
+                    "answer": "Punishment and Confession (Ep: 14)",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Ehh~ listen listen!! Quiz time, okay?\nNear the end of Horimiya, Hori-chan tries to totally embarrass Miyamura-kun with a super cutesy nickname, like she’s teasing him on purpose!\nSooo… what embarrassing little pet name does she try to call him? Hehe, do you knooow~?",
+                    "question_media_type": "photo",
+                    "question_media_url": "chika2.jpg",
+                    "answer": "Ikkun (Honey-san)",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 600,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Ehh~ listen listen!! In My Dress-Up Darling, Gojo-kun finally finishes his first ever cosplay outfit for Marin-chan—so nerve‑wracking!! It’s based on a character from her “favourite game”, of course ;)… So, what is the name of the character that her very first completed cosplay costume is based on?",
+                    "question_media_type": "photo",
+                    "question_media_url": "chika3.jpg",
+                    "answer": "Shizuku Kuroe",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Rintaro-kun and Kaoruko-san’s school rivalry is, like, super deluxe romcom drama, right? Their love story basically starts with “your school vs my school” war, it’s sooo fun~\nHer ojou-sama all-girls school has this very serious, very elegant official name that totally screams “proper young ladies only.” So, minna-san, what is the formal name of Kaoruko-san’s prestigious all-girls high school?",
+                    "question_media_type": "photo",
+                    "question_media_url": "chika4.jpg",
+                    "answer": "Kikyo Private Academy",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1000,
-                    "question_text": "",
+                    "question_text": "Our good girl Chika presents: Japan’s longest pedestrian suspension bridge—ta-daa! Be grateful, people, no dramatic cliff poses, okay?\nDuring their sweet “it’s not a real date” trip to Shizuoka, Kazuya-kun and Chizuru-san visit this super famous scenic spot that’s Japan’s longest pedestrian suspension bridge and has gorgeous Mount Fuji views—how romantic, right??\nSooo, quiz time~! What is the name of this beautiful location where those two dorks go on their “totally not a date” outing? 🎀",
+                    "question_media_type": "photo",
+                    "question_media_url": "chika5.jpg",
+                    "answer": "The Mishima Skywalk",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": ""
+                },
+                {
+                    "hp_value": 1200,
+                    "question_text": "Oooh, this is getting spicy~ Raku-san called me and asked who gave him that super important lovey-dovey promise locket, huh? That little lock-and-key marriage promise from ten years ago…\nSo, who gave him the locket—do you know that?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "Kosaki Onodera",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "In the infamous chapter 218 of Rent-a-Girlfriend, how many panels does Kazuya spend thinking about?\n\nGuess within 4 to win",
+                    "question_media_type": "photo",
+                    "question_media_url": "chika7.1.png",
+                    "answer": "67",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 }
@@ -484,55 +493,55 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "",
+                    "question_text": "What is missing in the fighting style of a Ninja compared to a Samurai (answer in One word).",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "Honor",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "",
+                    "question_text": "The Pokémon Ninetales, Naruto’s Kurama, and many fox spirits appearing throughout anime are all ultimately derived from the same creature in Japanese folklore. What is that creature called?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "Kitsune",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 600,
-                    "question_text": "",
+                    "question_text": "Book : Ikigai : : Taste : ?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "Umami (The 5th sense of taste / Famous Japanese taste concept)",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 800,
-                    "question_text": "",
+                    "question_text": "Official name of Japan’s fastest bullet train ever developed?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "SCMAGLEV",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1000,
-                    "question_text": "",
+                    "question_text": "Cherry blossoms are beautiful precisely because they last only a short time. This sentence is an example derived from which Japanese philosophical concept?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "Mono no aware",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
+                    "question_text": "How many times (recorded) Osamu Dazai tried to commit suicide?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
+                    "answer": "Five times",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 }

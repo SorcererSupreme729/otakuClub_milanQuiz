@@ -73,7 +73,7 @@ def _render_media(media_type: str, media_url: str) -> None:
         st.video(media_url)
 
 
-@st.dialog("Question")
+@st.dialog("Question", width="large")
 def show_question(category: str, tier: int) -> None:
     """
     Streamlit dialog that displays a question tile.

@@ -42,7 +42,7 @@ html, body, .stApp {
 }
 
 /* ========================================= */
-/* MAIN BOARD BUTTONS                        */
+/* MAIN BOARD BUTTONS & GRID                 */
 /* ========================================= */
 
 /* Point tile buttons - Equal spacing and identical sizes */
@@ -98,8 +98,20 @@ html, body, .stApp {
     gap: 0 !important;
 }
 
+/* ========================================= */
+/* LOGIN PAGE BORDER OVERRIDE (COVER PAGE)   */
+/* ========================================= */
+[data-testid="stMain"] div[data-testid="stHorizontalBlock"]:has(img),
+[data-testid="stMain"] div[data-testid="stHorizontalBlock"]:has(input) {
+    border: none !important;
+}
+
+[data-testid="stMain"] div[data-testid="stHorizontalBlock"]:has(img) div[data-testid="stColumn"],
+[data-testid="stMain"] div[data-testid="stHorizontalBlock"]:has(input) div[data-testid="stColumn"] {
+    border: none !important;
+}
+
 /* ── Button hover alignment fix ──────────────────────────────────────────── */
-/* Zero out EVERY intermediate Streamlit wrapper so the button fills the cell */
 [data-testid="stMain"] div[data-testid="stColumn"] > div,
 [data-testid="stMain"] div[data-testid="stColumn"] > div > div,
 [data-testid="stMain"] div[data-testid="stColumn"] > div > div > div {
@@ -108,20 +120,17 @@ html, body, .stApp {
     gap: 0 !important;
 }
 
-/* Flatten the vertical stack gap */
 [data-testid="stMain"] div[data-testid="stColumn"] [data-testid="stVerticalBlock"] {
     gap: 0 !important;
     padding: 0 !important;
 }
 
-/* Zero out the element-container wrapper (sits right above .stButton) */
 [data-testid="stMain"] div[data-testid="stColumn"] [data-testid="element-container"] {
     padding: 0 !important;
     margin: 0 !important;
     line-height: 0 !important;
 }
 
-/* Make the .stButton wrapper itself block + flush */
 [data-testid="stMain"] div[data-testid="stColumn"] .stButton {
     display: block !important;
     width: 100% !important;
@@ -130,7 +139,6 @@ html, body, .stApp {
     line-height: 0 !important;
 }
 
-/* Eliminating Streamlit's stubborn padding on markdown blocks */
 [data-testid="stMain"] .stMarkdown {
     width: 100% !important;
 }
@@ -153,19 +161,16 @@ section[data-testid="stSidebar"] h2, section[data-testid="stSidebar"] h1 {
     text-shadow: 0 0 12px rgba(183, 32, 46, 0.4);
 }
 
-/* Target and destroy the orange focus ring in the number input artifact */
 div[data-baseweb="input"]:focus-within {
     box-shadow: none !important;
     border-color: rgba(183, 32, 46, 0.5) !important;
 }
 
-/* Kills the hidden label from pushing down the number input */
 section[data-testid="stSidebar"] div[data-testid="stNumberInput"] label {
     display: none !important;
     height: 0 !important;
 }
 
-/* Ensure the Apply button aligns naturally without weird height overrides */
 section[data-testid="stSidebar"] .stButton > button {
     margin-top: -1px !important;
 }
@@ -174,13 +179,52 @@ hr, div[data-testid="stMarkdownContainer"] hr {
     border-color: rgba(183, 32, 46, 0.2) !important;
 }
 
-/* Dialog box */
-div[role="dialog"] {
-    background: linear-gradient(160deg, #120a0a, #050303) !important;
-    border: 1px solid rgba(183, 32, 46, 0.4);
-    box-shadow: 0 0 50px rgba(139, 0, 0, 0.35);
+/* ========================================= */
+/* DIALOG / MODAL BOX TWEAKS                 */
+/* ========================================= */
+
+/* 1. Target the absolute outermost dialog tag and wrapper */
+dialog, 
+[data-testid="stDialog"], 
+.stDialog {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    min-width: 95vw !important;
+    background: transparent !important;
+    /* 🎯 FORCE TRUE GEOMETRIC CENTERING 🎯 */
+    position: fixed !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
 }
 
+/* 2. Target the immediate inner wrapper that actually holds the content */
+dialog > div,
+[data-testid="stDialog"] > div,
+div[role="dialog"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    min-height: 85vh !important;
+    background: linear-gradient(160deg, #120a0a, #050303) !important;
+    border: 1px solid rgba(183, 32, 46, 0.4) !important;
+    box-shadow: 0 0 50px rgba(139, 0, 0, 0.35) !important;
+}
+
+/* 3. The true culprit: Streamlit's deeply hidden content blocks */
+dialog .block-container,
+dialog [data-testid="stVerticalBlock"],
+[data-testid="stDialog"] .block-container,
+[data-testid="stDialog"] [data-testid="stVerticalBlock"],
+[data-testid="stDialog"] [data-testid="stVerticalBlock"] > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+}
+
+/* ========================================= */
+/* HEADER TEXT FIXES                         */
+/* ========================================= */
 [data-testid="stMain"] div[data-testid="stHorizontalBlock"]:first-of-type {
     align-items: stretch !important;
 }
@@ -194,7 +238,6 @@ div[role="dialog"] {
     padding: 6px !important;
 }
 
-/* Fix header text wrapping and spacing */
 [data-testid="stMain"] div[data-testid="stHorizontalBlock"]:first-of-type div[data-testid="stColumn"] p,
 [data-testid="stMain"] div[data-testid="stHorizontalBlock"]:first-of-type div[data-testid="stColumn"] span {
     font-size: 0.85rem !important;

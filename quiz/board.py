@@ -22,41 +22,37 @@ def render_board() -> None:
 # ── Private helpers ───────────────────────────────────────────────────────────
 
 def _render_header() -> None:
-    """Renders the stylised game title and tagline."""
+    """Renders the stylised game title and tagline perfectly centred."""
 
     st.markdown(
         """
-        <h1 style="
-            font-size: 2.8rem !important;
-            text-align: center;
-            color: #b7202e;
-            font-family: Cinzel, serif;
-            letter-spacing: 4px;
-            text-shadow: 0 0 25px rgba(183, 32, 46, 0.55);
-            margin-top: 0px;
-            margin-bottom: 10px;
-            padding: 0;
-        ">
-            殺戮 CULLING GAME 殺戮
-        </h1>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-        <p style="
-            text-align: center;
-            color: #8a4a4a;
-            font-family: Rajdhani, sans-serif;
-            font-weight: 600;
-            letter-spacing: 3px;
-            margin-top: 0px;
-            margin-bottom: 32px;
-            padding: 0;
-        ">
-            SURVIVE THE ROUNDS — MILAN QUIZ EDITION
-        </p>
+        <div style="margin-top: 15px; margin-bottom: 35px; display: flex; flex-direction: column; align-items: center;">
+            <h1 style="
+                font-size: 2.8rem !important;
+                text-align: center;
+                color: #b7202e;
+                font-family: Cinzel, serif;
+                letter-spacing: 4px;
+                text-shadow: 0 0 25px rgba(183, 32, 46, 0.55);
+                margin: 0 0 35px 0; /* Pushes subtitle to the midpoint */
+                padding: 0;
+                line-height: 1.2;
+            ">
+                殺戮 CULLING GAME 殺戮
+            </h1>
+            <p style="
+                font-size: 1.15rem; /* Slightly larger font size */
+                text-align: center;
+                color: #8a4a4a;
+                font-family: Rajdhani, sans-serif;
+                font-weight: 600;
+                letter-spacing: 4px;
+                margin: 0;
+                padding: 0;
+            ">
+                SURVIVE THE ROUNDS — MILAN QUIZ EDITION
+            </p>
+        </div>
         """,
         unsafe_allow_html=True,
     )
@@ -105,6 +101,7 @@ def _render_category_header(category: str) -> None:
     """
 
     st.markdown(header_html, unsafe_allow_html=True)
+
 
 def _render_tier_buttons(category: str) -> None:
     """Renders active or disabled buttons for every tier in a category column."""
