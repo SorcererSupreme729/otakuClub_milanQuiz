@@ -7,6 +7,7 @@ credentials file generator.
 
 import streamlit as st
 import os
+import base64
 
 from quiz.config import MAX_HP, ADMIN_PASSWORD, HOSTER_PASSWORD, TEAM_PASSWORDS, TEAMS
 from quiz.state import save_state
@@ -88,14 +89,41 @@ def show_question(category: str, tier: int) -> None:
     data = load_questions()
     q = get_question(data, category, tier)
 
-    # Header
-    st.markdown(
-        f"<div style='font-size: 2.2rem; font-family: Cinzel, serif; "
-        f"color: #b7202e; border-bottom: 2px solid #8B0000; "
-        f"padding-bottom: 10px; margin-bottom: 20px;'>"
-        f"{category} — {tier} HP</div>",
-        unsafe_allow_html=True,
-    )
+    # Header: Compact centered image banner for Chika, purple text for everything else
+    if "CHIKA" in category.upper():
+        try:
+            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            img_path = os.path.join(project_root, "chikaFujiwaraTitle.jpg")
+            
+            # Narrower column ratio to make the image ~2x smaller
+            _, img_col, _ = st.columns([1, 0.6, 1])
+            with img_col:
+                st.image(img_path, use_container_width=True)
+                st.markdown(
+                    f"<div style='text-align: center; font-family: Cinzel, serif; color: #9b7aab; "
+                    f"font-size: 1.1rem; font-weight: 600; margin-top: 5px; margin-bottom: 20px; "
+                    f"letter-spacing: 0.08em; border-bottom: 2px solid rgba(90, 62, 107, 0.6); padding-bottom: 8px;'>"
+                    f"{tier} HP</div>",
+                    unsafe_allow_html=True,
+                )
+        except Exception:
+            st.markdown(
+                f"<div style='font-size: 2.2rem; font-family: Cinzel, serif; "
+                f"color: #9b7aab; border-bottom: 2px solid rgba(90, 62, 107, 0.6); "
+                f"padding-bottom: 10px; margin-bottom: 20px; "
+                f"text-shadow: 0 0 15px rgba(90, 62, 107, 0.4);'>"
+                f"{category} — {tier} HP</div>",
+                unsafe_allow_html=True,
+            )
+    else:
+        st.markdown(
+            f"<div style='font-size: 2.2rem; font-family: Cinzel, serif; "
+            f"color: #9b7aab; border-bottom: 2px solid rgba(90, 62, 107, 0.6); "
+            f"padding-bottom: 10px; margin-bottom: 20px; "
+            f"text-shadow: 0 0 15px rgba(90, 62, 107, 0.4);'>"
+            f"{category} — {tier} HP</div>",
+            unsafe_allow_html=True,
+        )
 
     # If question doesn't exist
     if q is None:
@@ -164,7 +192,6 @@ def show_question(category: str, tier: int) -> None:
                 unsafe_allow_html=True,
             )
 
-            # ⭐ THIS WAS MISSING ⭐
             # Show answer image/audio/video
             _render_media(
                 answer_media_type,

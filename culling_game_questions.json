@@ -79,14 +79,14 @@
                     "answer_media_url": ""
                 },
                 {
-    "hp_value": 400,
-    "question_text": "Which of the following did Kira say to reveal his identity?\n\n\n\n1.)My name is Yoshikage Kira. I'm 33 years old. My house is in the northeast section of Morioh, where all the villas are, and I am not married. I work as an employee for the Kame Yu department stores, and I get home every day by 8 PM at the latest. I don't smoke, but I occasionally drink. I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what. After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning. Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up. I'm trying to explain that I'm a person who wishes to live a very quiet life. I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night. That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I wouldn't lose to anyone.\n\n\nOr\n\n2.)Yes, my real name is Kira Yoshikage.",
-    "question_media_type": "paragraph",
-    "question_media_url": "",
-    "answer": "My name is Yoshikage Kira. I'm 33 years old. My house is in the northeast section of Morioh, where all the villas are, and I am not married. I work as an employee for the Kame Yu department stores, and I get home every day by 8 PM at the latest. I don't smoke, but I occasionally drink. I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what. After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning. Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up. I'm trying to explain that I'm a person who wishes to live a very quiet life. I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night. That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I wouldn't lose to anyone.",
-    "answer_media_type": "photo",
-    "answer_media_url": "kirayo.jpg"
-},
+                    "hp_value": 400,
+                    "question_text": "What did Kira say to reveal his identity?",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "My name is Yoshikage Kira. I'm 33 years old. My house is in the northeast section of Morioh, where all the villas are, and I am not married. I work as an employee for the Kame Yu department stores, and I get home every day by 8 PM at the latest. I don't smoke, but I occasionally drink. I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what. After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning. Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up. I'm trying to explain that I'm a person who wishes to live a very quiet life. I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night. That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I wouldn't lose to anyone.\n\n\nOr\n\n\nYes, my real name is Kira Yoshikage.",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "kirayo.jpg"
+                },
                 {
                     "hp_value": 600,
                     "question_text": "These four fundamental techniques form the foundation of Nen training in Hunter × Hunter. Name these four techniques.",
@@ -116,7 +116,7 @@
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "Name all anime 😉 (rules to be decided)",
+                    "question_text": "<b>Name all anime:</b>\n\nOpen Discord\n\nType all anime you can list to Kogane\n\nYou have two minutes as soon as the timer starts",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
                     "answer": "Various / Rule-dependent",
@@ -130,33 +130,24 @@
             "questions": [
                 {
                     "hp_value": 200,
-                    "question_text": "The author of X is a very big fan of the Star Wars franchise. In the anime X he is seen naming places as references to Star Wars, for example - Tatooin (Tatooine) Station, Nabu (Naboo) Junior High etc. This led the fans to speculate theories on what is the real identity of the villain of X as the main villain is also limited to his suit similar to Darth Vader in Star Wars.\nIdentify X.",
+                    "question_text": "The creator of this series is a massive Star Wars fan, which is reflected in location names like Tatooine Station and Nabu Junior High. This has led fans to heavily theorize about the true identity of the main antagonist, who, much like Darth Vader, is confined to a life-support suit and mask. Identify the series.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "Bleach",
+                    "answer": "My Hero Academia",
                     "answer_media_type": "photo",
-                    "answer_media_url": "bleach.webp"
+                    "answer_media_url": "mha.jpg"
                 },
                 {
                     "hp_value": 400,
-                    "question_text": "Saito Musashibo Benkei, popularly known as Benkei, was a legendary warrior monk during the Heian period of Japan, known for his combat skills, size and his signature weapon. He famously died in defiance and resilience, supported by his signature weapon on his side while fighting Yorimoto, to protect his companion.\nA well-known character from the Big 3 is heavily inspired by Benkei in many ways, one of which is that both died standing.\nID the character and the way both died.",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "Edward Newgate (Whitebeard) from One Piece; died standing upright after taking massive damage.",
-                    "answer_media_type": "photo",
-                    "answer_media_url": "whitebeard.webp"
-                },
-                {
-                    "hp_value": 600,
                     "question_text": "X is a demonic figure in Japanese mythology. Described to be a man of inhuman strength, X appears to have two faces and eight limbs: two arms and two legs for each face.\nX was a human who had an incredible amount of strength. It was a herculean task for him to get defeated. After his death he turned into a demonic figure as described and his abilities were too strong for his body to be fully destroyed as a result of which certain parts of his body remained.\nID X.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "Sukuna (Ryomen Sukuna)",
+                    "answer": "Ryomen Sukuna (JJK)",
                     "answer_media_type": "photo",
                     "answer_media_url": "sukuna.jpg"
                 },
                 {
-                    "hp_value": 800,
+                    "hp_value": 600,
                     "question_text": "After airing in 2019, this clip from the ending of a famous anime went viral, with fans all over the world copying the actions of the character in the clip and posting the videos on social media. Other social media users took the clip and paired it with other music, making remixes. It is likely that the reason the clip got so popular was because it used an animation technique called rotoscoping, which made the movements of the character very realistic. Considering the clip, this technique was probably very hard due to the amount of movement.\nWhat am I talking about?",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
@@ -165,22 +156,31 @@
                     "answer_media_url": "chikadance.jpeg"
                 },
                 {
-                    "hp_value": 1000,
-                    "question_text": "",
+                    "hp_value": 800,
+                    "question_text": "This iconic character's backstory draws heavily from notorious historical figures. One inspiration is Henry Avery, who vanished without a trace after becoming the wealthiest trader of his time via a massive naval heist. The more evident inspiration is Olivier Levasseur, who, moments before his execution, hurled a cryptic parchment into the crowd, claiming it held the secret to a —-------------.Identify the character.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Gol D. Roger (One Piece)",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "goldroger.webp"
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
+                    "question_text": "Researchers at Stanford and Penn found that in order for regions dedicated to a new category of objects to develop in the visual cortex , the part of the brain that processes what we see, then exposure to those objects must start young when the brain is particularly malleable. Therefore, in a recent study it was found that in adults who played a specific video game extensively as children, a particular area of the visual cortex lights up when they view characters from the original version. This localized neural region activates in response to the diverse classifications of animals, cartoons and words that players invariably encounter across the expansive multitude of versions of the game. To secure victory, participants must possess a comprehensive grasp of individual character capabilities and execute judicious strategic decisions pertaining to their progressive development. Ascertain the precise identity of this interactive title.",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
+                    "answer": "Pokémon",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "pokemon.jpg"
+                },
+                {
+                    "hp_value": 1000,
+                    "question_text": "The critically acclaimed anime movie X was a technical achievement for the Japanese anime industry. X consisted of 2,212 shots and 160,000 single pictures. This is about 2-3 times more than the average anime movie at that time. Among the anime movie's record-breaking usage of 327 colors, 50 were created exclusively for the film. The reasoning for all this? The majority of “X” takes place at night, which was a setting animators commonly avoided due to increased color requirements. Give the name of the anime movie X.",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "Akira",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "akira.jpg"
                 }
             ]
         },
@@ -250,8 +250,8 @@
                     "hp_value": 200,
                     "question_text": "Identify this heavily pixelated/glitched character/scene.",
                     "question_media_type": "photo",
-                    "question_media_url": "LightUsingNote.jpg",
-                    "answer": "Light using the death note",
+                    "question_media_url": "Johan.jpg",
+                    "answer": "Johan Liebert pointing a gun",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
@@ -259,8 +259,8 @@
                     "hp_value": 400,
                     "question_text": "Identify this heavily pixelated/glitched character/scene.",
                     "question_media_type": "photo",
-                    "question_media_url": "Johan.jpg",
-                    "answer": "Johan Liebert pointing a gun",
+                    "question_media_url": "overlord.png",
+                    "answer": "overlord",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
@@ -268,8 +268,8 @@
                     "hp_value": 600,
                     "question_text": "Identify this heavily pixelated/glitched character/scene.",
                     "question_media_type": "photo",
-                    "question_media_url": "RabbitsEatingSubaru.png",
-                    "answer": "Rabbits eating Subaru",
+                    "question_media_url": "rezero.png",
+                    "answer": "Rabbits eating Subaru in Re: Zero",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
@@ -286,17 +286,17 @@
                     "hp_value": 1000,
                     "question_text": "Identify this heavily pixelated/glitched character/scene.",
                     "question_media_type": "photo",
-                    "question_media_url": "Netero.jpg",
-                    "answer": "during Netero's fight with Meruem",
+                    "question_media_url": "hxhnetero.png",
+                    "answer": "HxH, during Netero's fight with Meruem",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "",
+                    "question_text": "Identify this heavily pixelated/glitched character/scene.",
+                    "question_media_type": "photo",
+                    "question_media_url": "konosuba.png",
+                    "answer": "konosuba",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 }
@@ -343,19 +343,19 @@
                 },
                 {
                     "hp_value": 1000,
+                    "question_text": "During Rudeus’s journey after the Mana Calamity, he encounters many people whose names and identities become important later. However, there is one individual whose significance is almost completely hidden at first: the person is encountered during Rudeus’s travels, is connected to a group whose members possess a distinctive physical characteristic, and participates in an event where Rudeus observes a particular ability that distinguishes this individual from ordinary members of their race. Much later, information revealed through another character changes the apparent meaning of that earlier encounter. What is the name of the individual?",
+                    "question_media_type": "paragraph",
+                    "question_media_url": "",
+                    "answer": "Kishirika",
+                    "answer_media_type": "photo",
+                    "answer_media_url": "kishirika.jpg"
+                },
+                {
+                    "hp_value": 1500,
                     "question_text": "Name them all. (Points only if you can name them all)",
                     "question_media_type": "photo",
                     "question_media_url": "eminence.png",
                     "answer": "Lambda, Omega, Eta, Gamma, Alpha, Beta, Nu, Delta, Zeta",
-                    "answer_media_type": "paragraph",
-                    "answer_media_url": ""
-                },
-                {
-                    "hp_value": 1500,
-                    "question_text": "to be added",
-                    "question_media_type": "paragraph",
-                    "question_media_url": "",
-                    "answer": "to be added",
                     "answer_media_type": "paragraph",
                     "answer_media_url": ""
                 }
@@ -479,7 +479,7 @@
                 },
                 {
                     "hp_value": 1500,
-                    "question_text": "In the infamous chapter 218 of Rent-a-Girlfriend, how many panels does Kazuya spend thinking about?\n\nGuess within 4 to win",
+                    "question_text": "In the infamous chapter 218 of Rent-a-Girlfriend, how many panels does Kazuya spend thinking about getting c***ked?\n\nGuess within 4 to win",
                     "question_media_type": "photo",
                     "question_media_url": "chika7.1.png",
                     "answer": "67",

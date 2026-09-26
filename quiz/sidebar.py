@@ -1,29 +1,27 @@
-"""
-sidebar.py
-"""
-
 import streamlit as st
 from quiz.config import TEAMS, TEAM_COLORS
 from quiz.components import hp_bar_html, generate_credentials_file
 from quiz.state import save_state
 
-PREMADE_ITEMS = [
-    "Revival Blessing",
-    "Heal 400",
-    "Poison",
-    "Barrier",
-    "Rocky helmet",
-    "Landmine",
-    "Black Flash",
-    "Leech Seed",
-    "Domain",
-    "Focus Sash",
-    "Life Drain",
-    "Kazuma’s hand",
-    "Truck-kun’s insurance payout",
-    "Shinigami Eyes",
-    "Uno Reverse",
-]
+ITEM_DESCRIPTIONS = {
+    "Revival Blessing": "Revives a dead teammate.",
+    "Heal 400": "Restores 400 HP.",
+    "Poison": "Poisons another team; they take an extra 6.25% HP for every wrong answer. It is removed if they answer any question correctly.",
+    "Barrier": "Nullifies any explicit damage dealt (1 time use only).",
+    "Rocky helmet": "The team that deals damage to the team with a rocky helmet will take half the damage. Breaks after 2 uses.",
+    "Landmine": "Allows a team to place a landmine on one question. If any team chooses that question, they take 400 HP worth of damage.",
+    "Black Flash": "Activate after buzzing correctly, before dealing damage. Flip a coin: Win = 1.2x damage, Lose = 0.8x damage.",
+    "Leech Seed": "Target team loses 100 HP for 4 turns, and your team heals that amount.",
+    "Domain": "The team that set up a domain on the question is immune to any damage from the question. (Only 3 exist).",
+    "Focus Sash": "If an attack would reduce you to 0 HP, you survive at 1 HP. One use only.",
+    "Life Drain": "Every team except you loses 10% of their current HP. If they have less than 200HP, they lose 200HP instead.",
+    "Kazuma’s hand": "Steal another team's item.",
+    "Truck-kun’s insurance payout": "When receiving lethal damage, Isekai one teammate to survive with 1000 HP. The teammate can never be revived.",
+    "Shinigami Eyes": "Sacrifice 50% of your current HP to 'write down' a team's name. Their next incorrect answer penalty is multiplied by 2.5x.",
+    "Uno Reverse": "Reflect all items.",
+}
+
+PREMADE_ITEMS = list(ITEM_DESCRIPTIONS.keys())
 
 def render_sidebar() -> None:
     mode = st.session_state.mode
@@ -43,7 +41,6 @@ def render_sidebar() -> None:
         if st.button("🔁 Switch Mode / Log Out", use_container_width=True):
             st.session_state.mode = None
             st.rerun()
-
 
 def _render_admin_sidebar() -> None:
     st.header("⛩️ Colony Overseer")

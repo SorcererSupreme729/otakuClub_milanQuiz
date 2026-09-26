@@ -2,12 +2,6 @@
 app.py
 ------
 Entry point for the Milan Quiz: Culling Game Streamlit application.
-
-Run with:
-    streamlit run app.py
-
-This file is intentionally thin — it only wires together the modules
-from the quiz/ package. All business logic lives in those modules.
 """
 
 import streamlit as st
@@ -29,7 +23,7 @@ from quiz.config import (
 )
 from quiz.state import init_session_state, check_for_external_updates
 from quiz.styles import inject_css
-from quiz.sidebar import render_sidebar
+from quiz.sidebar import render_sidebar, ITEM_DESCRIPTIONS
 from quiz.board import render_board
 
 # ── 1. Inject CSS ─────────────────────────────────────────────────────────────
@@ -41,10 +35,12 @@ init_session_state()
 # ── 3. Login Gate ─────────────────────────────────────────────────────────────
 if st.session_state.mode is None:
     st.markdown("<br><br>", unsafe_allow_html=True)
+    
+    # Changed color to #d8d3c7 (beige) to match the main board, kept size at 2.2rem
     st.markdown(
         "<h1 style='font-size:2.2rem !important; font-family: Cinzel, serif; "
-        "color: #b7202e; text-align: center; margin-bottom: 20px;'>"
-        "Select Your Identity</h1>",
+        "color: #d8d3c7; text-align: center; margin-bottom: 20px;'>"
+        "SELECT YOUR IDENTITY</h1>",
         unsafe_allow_html=True,
     )
 
@@ -87,18 +83,11 @@ if st.session_state.mode is None:
     st.stop()
 
 # ── 4. Real-time sync: detect changes saved by other sessions ─────────────────
-# Runs on every page interaction. For fully automatic polling use the
-# auto-refresh fragment below (fires every 3 s in non-admin sessions).
 check_for_external_updates()
 
 # ── 5. Auto-refresh fragment — keeps non-admin tabs in sync automatically ─────
 @st.fragment(run_every=3)
 def _sync_watcher() -> None:
-    """
-    Lightweight fragment that polls the state file every 3 seconds.
-    If the mtime changed (another session saved), it reloads session state
-    and triggers a full page rerun so every open tab stays live.
-    """
     import os
     from quiz.config import STATE_FILE
     from quiz.state import load_state
@@ -116,8 +105,6 @@ def _sync_watcher() -> None:
             st.session_state["items"] = loaded["items"]
         st.rerun()
 
-# Only run the auto-poller for non-admin sessions to avoid fighting with
-# the admin's own saves triggering double reruns.
 if st.session_state.mode != "admin":
     _sync_watcher()
 
@@ -125,11 +112,13 @@ if st.session_state.mode != "admin":
 render_sidebar()
 
 def render_rules():
-    """Renders the global rules tab visible to all players and admins."""
-    st.markdown("<h1 style='color: #b7202e; font-family: Cinzel, serif; text-align: center;'>📜 Rules of Engagement</h1>", unsafe_allow_html=True)
+    st.markdown(
+        "<h1 style='color: #d8c9c0; font-family: Cinzel, serif; text-align: center; font-size: 3.2rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 30px;'>Rules of Engagement</h1>", 
+        unsafe_allow_html=True
+    )
     
     st.markdown("""
-    ### ⚙️ Game Setup
+    ### Game Setup
 
     * **Teams:** 8 (4–5 players per team)
     * **HP:** Starts at 4,000 HP (Maximum limit: 4,000 HP)
@@ -138,7 +127,7 @@ def render_rules():
     """)
 
     st.markdown("""
-    ### 📜 General Rules
+    ### General Rules
 
     1. **Buzz-In:** The first team to buzz in gets the first opportunity to answer.
     2. **If No Team Answers:** The next question will be selected by the team immediately following the question-selecting team in the MILAN/Menti ranking.
@@ -147,7 +136,7 @@ def render_rules():
     """)
 
     st.markdown("""
-    ### ⚔️ Damage & Combat Mechanics
+    ### Damage & Combat Mechanics
 
     5. **Consecutive Damage Multiplier:** If a team takes damage on consecutive turns, incoming damage reduces by 0.1x per turn (Min: 0.5x). *(Progression: 1.0x → 0.9x → 0.8x → 0.7x → 0.6x → 0.5x)*. Resets to 1.0x after one complete turn of no damage. *(Exception: Does not apply to 1,500-point questions).*
     6. **Player Sacrifice (Inactivity):** If a team doesn't answer for *n−1* consecutive questions, they must sacrifice one player to remain in the game. Revived players cannot participate in team discussions.
@@ -158,7 +147,7 @@ def render_rules():
     """)
 
     st.markdown("""
-    ### 🩸 Sacrifice Mechanics
+    ### Sacrifice Mechanics
 
     9. **Reviving a Player:** Cost = `min(25% of current HP, 400 HP)`. Must have enough HP to pay the full cost.
     10. **Buy a Wheel Spin:** Cost = `max(5% of current HP, 100 HP)`. Must have enough HP to pay the full cost.
@@ -166,21 +155,21 @@ def render_rules():
     """)
 
     st.markdown("""
-    ### 💡 Hints & Question Mechanics
+    ### Hints & Question Mechanics
 
     12. **Purchasing a Hint:** After buzzing in, sacrifice HP for a hint. Cost = **50% of the tier value** (e.g., 200pt → 100 HP).
     13. **No Point Transfers:** HP/points cannot be transferred between teams (except via specific items).
     """)
 
     st.markdown("""
-    ### 🔥 Streaks & Special Buffs
+    ### Streaks & Special Buffs
 
     14. **Three-Question Streak:** 3 correct answers in a row = 1 Free Wheel Spin (Normal or Hell).
     15. **Last Stand Buff:** If only 1 player remains in a team, they gain **+500 HP** for every correct answer (in addition to normal effects).
     """)
 
     st.markdown("""
-    ### 🎒 Items & 🎡 Wheel Mechanics
+    ### Items & Wheel Mechanics
 
     16. **Using Items:** Use immediately or store in inventory (unless restricted).
     17. **Item Trades:** All item trades must be discussed with and approved by Kogane.
@@ -188,14 +177,14 @@ def render_rules():
     """)
 
     st.markdown("""
-    ### 👑 Leader & Comeback Mechanics
+    ### Leader & Comeback Mechanics
 
     19. **First-Place Penalty:** The 1st place team takes **20% increased damage** (1.2x) from attacks. 
     20. **Boss Bounty:** Eliminating the 1st place team awards **2 Normal Wheel spins** instead of 1.
     """)
 
     st.markdown("""
-    ### 📊 Quick Reference
+    ### Quick Reference
 
     | Mechanic | Rule |
     | :--- | :--- |
@@ -215,21 +204,32 @@ def render_rules():
     | **Last Stand** | +500 HP per correct answer (1 player remaining) |
     """)
 
-def render_team_dashboard(team_name):
-    """Renders the isolated view for teams (No Jeopardy Board)."""
+def render_items_guide():
     st.markdown(
-        f"<h1 style='color: #b7202e; font-family: Cinzel, serif; text-align: center;'>🗡️ {team_name} Terminal</h1>", 
+        "<h1 style='color: #d8c9c0; font-family: Cinzel, serif; text-align: center; font-size: 3.2rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 30px;'>🎒 Culling Game Item Guide</h1>", 
+        unsafe_allow_html=True
+    )
+    st.markdown("A complete list of special items, abilities, and curses available in the Milan Culling Game:")
+    st.divider()
+
+    for item, desc in ITEM_DESCRIPTIONS.items():
+        st.markdown(
+            f"**{item}**<br><span style='font-size: 0.95rem; color: #a1a1aa;'>{desc}</span>", 
+            unsafe_allow_html=True
+        )
+        st.write("")
+
+def render_team_dashboard(team_name):
+    st.markdown(
+        f"<h1 style='color: #d8c9c0; font-family: Cinzel, serif; text-align: center; font-size: 3.2rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 30px;'>🗡️ {team_name} Terminal</h1>", 
         unsafe_allow_html=True
     )
     
     current_hp = st.session_state.hp[team_name]
     
-    # 🔥 UPDATED RANKING LOGIC (Handles ties perfectly)
-    # This finds all unique HP scores. If everyone is at 4000, 4000 is officially Rank 1.
     unique_hps = sorted(list(set(st.session_state.hp.values())), reverse=True)
     rank = unique_hps.index(current_hp) + 1
     
-    # Display Stats
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(f"<h3 style='color: #c9a0a0;'>🏆 Current Rank: #{rank}</h3>", unsafe_allow_html=True)
@@ -237,9 +237,8 @@ def render_team_dashboard(team_name):
         st.markdown(f"<h3 style='color: #c9a0a0;'>🩸 Cursed Energy: {current_hp} HP</h3>", unsafe_allow_html=True)
     
     st.divider()
-    st.markdown("<h3 style='color: #b7202e; font-family: Cinzel, serif;'>🎒 Cursed Inventory (Items)</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color: #9b7aab; font-family: Cinzel, serif;'>🎒 Cursed Inventory (Items)</h3>", unsafe_allow_html=True)
     
-    # Items display
     items = st.session_state.get("items", {}).get(team_name, [])
     if not items:
         st.info("Your inventory is empty. Survive rounds to claim artifacts.")
@@ -249,15 +248,19 @@ def render_team_dashboard(team_name):
 
 # ── Role-Based Routing ──
 if st.session_state.mode in ["admin", "hoster"]:
-    tab1, tab2 = st.tabs(["Culling Game Board", "Rules of Engagement"])
+    tab1, tab2, tab3 = st.tabs(["Culling Game Board", "Rules of Engagement", "Items Guide"])
     with tab1:
         render_board()
     with tab2:
         render_rules()
+    with tab3:
+        render_items_guide()
         
 elif st.session_state.mode in TEAMS:
-    tab1, tab2 = st.tabs(["Team Dashboard", "Rules of Engagement"])
+    tab1, tab2, tab3 = st.tabs(["Team Dashboard", "Rules of Engagement", "Items Guide"])
     with tab1:
         render_team_dashboard(st.session_state.mode)
     with tab2:
         render_rules()
+    with tab3:
+        render_items_guide()
