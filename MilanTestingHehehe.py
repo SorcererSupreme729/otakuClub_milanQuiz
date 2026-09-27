@@ -308,14 +308,14 @@ def show_question(category, tier):
     )
 
     if IS_ADMIN:
-        if st.button("🔍 Reveal Answer", use_container_width=True):
+        if st.button("Reveal Answer", use_container_width=True):
             # Beautiful, bright text for the answer so it stands out
             st.markdown(
                 "<div style='font-size: 1.8rem; font-family: Rajdhani, sans-serif; color: #4CAF50; font-weight: bold; margin-bottom: 20px;'>Insert your answer text here...</div>", 
                 unsafe_allow_html=True
             )
 
-        if st.button("✅ Mark as Done & Close", use_container_width=True):
+        if st.button("Mark as Done & Close", use_container_width=True):
             st.session_state.board[category][tier] = False
             save_state()  # Instantly saves the board state to the backend!
             st.rerun()

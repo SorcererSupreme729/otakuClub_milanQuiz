@@ -180,7 +180,7 @@ def show_question(category: str, tier: int) -> None:
 
     if can_control:
 
-        if st.button("🔍 Reveal Answer", use_container_width=True):
+        if st.button("Reveal Answer", use_container_width=True):
 
             # Answer text
             st.markdown(
@@ -198,7 +198,7 @@ def show_question(category: str, tier: int) -> None:
                 answer_media_url
             )
 
-        if st.button("✅ Mark as Done & Close", use_container_width=True):
+        if st.button("Mark as Done & Close", use_container_width=True):
             st.session_state.board[category][tier] = False
             save_state()
             st.rerun()

@@ -1,7 +1,7 @@
 import streamlit as st
 from quiz.config import TEAMS, TEAM_COLORS
 from quiz.components import hp_bar_html, generate_credentials_file
-from quiz.state import save_state
+from quiz.state import get_ranked_teams, save_state, update_team_hp
 
 ITEM_DESCRIPTIONS = {
     "Revival Blessing": "Revives a dead teammate.",
@@ -57,8 +57,10 @@ def _render_admin_sidebar() -> None:
     st.divider()
 
     for team, color in zip(TEAMS, TEAM_COLORS):
+        username = st.session_state["usernames"].get(team, "")
+        display_name = f"{team} — {username}" if username else team
         st.markdown(
-            hp_bar_html(team, st.session_state.hp[team], color),
+            hp_bar_html(display_name, st.session_state.hp[team], color),
             unsafe_allow_html=True,
         )
 
@@ -69,7 +71,7 @@ def _render_admin_sidebar() -> None:
             )
         with col2:
             if st.button("Apply", key=f"btn_{team}", use_container_width=True):
-                st.session_state.hp[team] = max(0, st.session_state.hp[team] + adj_val)
+                update_team_hp(team, st.session_state.hp[team] + adj_val)
                 save_state()
                 st.rerun()
                 
@@ -126,6 +128,7 @@ def _render_admin_sidebar() -> None:
         st.session_state.hp = {team: MAX_HP for team in TEAMS}
         st.session_state.board = {cat: {tier: True for tier in TIERS} for cat in CATEGORIES}
         st.session_state["items"] = {team: [] for team in TEAMS}
+        st.session_state["death_order"] = []
         save_state()
         st.rerun()
 
@@ -136,26 +139,38 @@ def _render_hoster_sidebar() -> None:
     st.divider()
 
     color_map = dict(zip(TEAMS, TEAM_COLORS))
-    ranked = sorted(TEAMS, key=lambda t: st.session_state.hp[t], reverse=True)
-    badges = ["🥇", "🥈", "🥉"] + [f"**#{i}**" for i in range(4, len(TEAMS) + 1)]
+    ranked = get_ranked_teams()
+    badges = ["🥇", "🥈", "🥉"] + [f"#{i}" for i in range(4, len(TEAMS) + 1)]
+
+    defeated_teams = [
+        st.session_state["usernames"].get(team) or team
+        for team in TEAMS
+        if st.session_state.hp[team] <= 0
+    ]
+    if defeated_teams:
+        st.warning(f"Eliminated: {', '.join(defeated_teams)}")
 
     for badge, team in zip(badges, ranked):
         hp = st.session_state.hp[team]
         color = color_map[team]
+        username = st.session_state["usernames"].get(team, "")
+        display_name = f"{team} — {username}" if username else team
         st.markdown(
             f"<div style='font-family: Rajdhani, sans-serif; font-size: 0.8rem; "
             f"color: #8a4a4a; margin-top: 10px; margin-bottom: -6px;'>"
-            f"{badge}&nbsp;&nbsp;<span style='color:{color}; font-weight:700;'>{team}</span>"
+            f"{badge}&nbsp;&nbsp;<span style='color:{color}; font-weight:700;'>{display_name}</span>"
             f"</div>",
             unsafe_allow_html=True,
         )
-        st.markdown(hp_bar_html(team, hp, color), unsafe_allow_html=True)
+        st.markdown(hp_bar_html(display_name, hp, color), unsafe_allow_html=True)
 
 
 def _render_team_sidebar(logged_in_team: str | None) -> None:
     if logged_in_team:
-        st.header(f"🗡️ {logged_in_team} Terminal")
-        st.caption("Your team is active. Awaiting your turn.")
+        username = st.session_state["usernames"].get(logged_in_team, "")
+        identity = f"{logged_in_team} — {username}" if username else logged_in_team
+        st.header(f"{identity} Terminal")
+        st.caption("Your team is alive. Awaiting your turn.")
     else:
         st.header("🩸 Viewer")
         st.caption("Live cursed energy — read only")
@@ -164,19 +179,21 @@ def _render_team_sidebar(logged_in_team: str | None) -> None:
     st.divider()
 
     color_map = dict(zip(TEAMS, TEAM_COLORS))
-    ranked = sorted(TEAMS, key=lambda team: st.session_state.hp[team], reverse=True)
-    badges = ["🥇", "🥈", "🥉"] + [f"**#{i}**" for i in range(4, len(TEAMS) + 1)]
+    ranked = get_ranked_teams()
+    badges = ["🥇", "🥈", "🥉"] + [f"#{i}" for i in range(4, len(TEAMS) + 1)]
 
     for badge, team in zip(badges, ranked):
         color = color_map[team]
+        username = st.session_state["usernames"].get(team, "")
+        display_name = f"{team} — {username}" if username else team
         st.markdown(
             f"<div style='font-family: Rajdhani, sans-serif; font-size: 0.8rem; "
             f"color: #8a4a4a; margin-top: 10px; margin-bottom: -6px;'>"
-            f"{badge}&nbsp;&nbsp;<span style='color:{color}; font-weight:700;'>{team}</span>"
+            f"{badge}&nbsp;&nbsp;<span style='color:{color}; font-weight:700;'>{display_name}</span>"
             f"</div>",
             unsafe_allow_html=True,
         )
         st.markdown(
-            hp_bar_html(team, st.session_state.hp[team], color),
+            hp_bar_html(display_name, st.session_state.hp[team], color),
             unsafe_allow_html=True,
         )

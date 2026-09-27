@@ -4,6 +4,8 @@ app.py
 Entry point for the Milan Quiz: Culling Game Streamlit application.
 """
 
+import re
+
 import streamlit as st
 
 # ── Must be the very first Streamlit call ─────────────────────────────────────
@@ -21,7 +23,12 @@ from quiz.config import (
     TEAM_PASSWORDS,
     THEME_IMAGE,
 )
-from quiz.state import init_session_state, check_for_external_updates
+from quiz.state import (
+    check_for_external_updates,
+    get_ranked_teams,
+    init_session_state,
+    save_state,
+)
 from quiz.styles import inject_css
 from quiz.sidebar import render_sidebar, ITEM_DESCRIPTIONS
 from quiz.board import render_board
@@ -69,23 +76,47 @@ if st.session_state.mode is None:
                 else:
                     st.error("Incorrect Cursed Energy Signature (Wrong Hoster Password).")
         else:
+            username = ""
+            if choice in TEAMS:
+                saved_username = st.session_state["usernames"].get(choice, "")
+                username = st.text_input(
+                    "Enter Username",
+                    value=saved_username,
+                    max_chars=15,
+                )
+
             pw = st.text_input("Enter Password", type="password")
             if st.button("Authenticate", use_container_width=True):
                 if choice == "Colony Overseer (Admin)" and pw == ADMIN_PASSWORD:
                     st.session_state.mode = "admin"
                     st.rerun()
                 elif choice in TEAMS and pw == TEAM_PASSWORDS.get(choice):
-                    st.session_state.mode = choice
-                    st.rerun()
+                    username = username.strip()
+                    saved_username = st.session_state["usernames"].get(choice, "")
+                    if not username:
+                        username = saved_username
+
+                    if not username:
+                        st.error("Enter a username before authenticating.")
+                    elif not re.fullmatch(r"[A-Za-z0-9]{1,10}", username):
+                        st.error("Username must be 1-10 alphanumeric characters.")
+                    elif any(
+                        username.casefold() == other.casefold()
+                        for team, other in st.session_state["usernames"].items()
+                        if team != choice and other
+                    ):
+                        st.error("That username is already in use.")
+                    else:
+                        st.session_state["usernames"][choice] = username
+                        save_state()
+                        st.session_state.mode = choice
+                        st.rerun()
                 else:
                     st.error("Incorrect Cursed Energy Signature (Wrong Password).")
 
     st.stop()
 
-# ── 4. Real-time sync: detect changes saved by other sessions ─────────────────
-check_for_external_updates()
-
-# ── 5. Auto-refresh fragment — keeps non-admin tabs in sync automatically ─────
+# ── 4. Auto-refresh fragment — keeps all sessions in sync automatically ───────
 @st.fragment(run_every=3)
 def _sync_watcher() -> None:
     import os
@@ -103,10 +134,39 @@ def _sync_watcher() -> None:
             st.session_state.hp = loaded["hp"]
             st.session_state.board = loaded["board"]
             st.session_state["items"] = loaded["items"]
+            st.session_state["usernames"] = loaded["usernames"]
+            st.session_state["death_order"] = loaded["death_order"]
         st.rerun()
 
-if st.session_state.mode != "admin":
-    _sync_watcher()
+_sync_watcher()
+
+# ── 5. Real-time sync: detect changes saved by other sessions ─────────────────
+check_for_external_updates()
+
+if st.session_state.mode in TEAMS:
+    logged_in_team = st.session_state.mode
+    if st.session_state.hp[logged_in_team] <= 0:
+        st.markdown(
+            """
+            <div style="
+                position: fixed; inset: 0; width: 100vw; height: 100vh;
+                background: #000; z-index: 9999; pointer-events: all;
+                display: flex; align-items: center; justify-content: center;
+            ">
+                <span style="
+                    color: #ff2222; font-family: 'Cinzel', serif;
+                    font-size: clamp(3rem, 10vw, 6rem); font-weight: 700;
+                    letter-spacing: 0.1em; text-transform: uppercase;
+                    text-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+                    text-align: center;
+                ">
+                    YOU HAVE DIED
+                </span>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        st.stop()
 
 # ── 6. Main App (post-login) ──────────────────────────────────────────────────
 render_sidebar()
@@ -117,15 +177,6 @@ def render_rules():
         unsafe_allow_html=True
     )
     
-    st.markdown("""
-    ### Game Setup
-
-    * **Teams:** 8 (4–5 players per team)
-    * **HP:** Starts at 4,000 HP (Maximum limit: 4,000 HP)
-    * **Questions:** 9 Sections. Tiers range from 200 to 1,500 points.
-    * **Total Points Available:** 40,500
-    """)
-
     st.markdown("""
     ### General Rules
 
@@ -142,8 +193,8 @@ def render_rules():
     6. **Player Sacrifice (Inactivity):** If a team doesn't answer for *n−1* consecutive questions, they must sacrifice one player to remain in the game. Revived players cannot participate in team discussions.
     7. **Team Elimination:** If a team loses all of its players, they are eliminated.
     8. **Eliminating a Team (Bounty):**
-       * If the defeated team *had* sacrificed players: All of those sacrificed players are immediately brought back.
-       * If the defeated team *had no* sacrificed players: The attacking team receives one free spin of the Normal Wheel.
+       * If the attacking team *had* sacrificed players: All of those sacrificed players are immediately brought back.
+       * If the attacking team *had no* sacrificed players: The attacking team receives one free spin of the Normal Wheel.
     """)
 
     st.markdown("""
@@ -206,7 +257,7 @@ def render_rules():
 
 def render_items_guide():
     st.markdown(
-        "<h1 style='color: #d8c9c0; font-family: Cinzel, serif; text-align: center; font-size: 3.2rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 30px;'>🎒 Culling Game Item Guide</h1>", 
+        "<h1 style='color: #d8c9c0; font-family: Cinzel, serif; text-align: center; font-size: 3.2rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 30px;'> Culling Game Item Guide</h1>", 
         unsafe_allow_html=True
     )
     st.markdown("A complete list of special items, abilities, and curses available in the Milan Culling Game:")
@@ -227,8 +278,7 @@ def render_team_dashboard(team_name):
     
     current_hp = st.session_state.hp[team_name]
     
-    unique_hps = sorted(list(set(st.session_state.hp.values())), reverse=True)
-    rank = unique_hps.index(current_hp) + 1
+    rank = get_ranked_teams().index(team_name) + 1
     
     col1, col2 = st.columns(2)
     with col1:

@@ -25,7 +25,24 @@ def load_state() -> dict | None:
     }
     
     items_data = data.get("items", {team: [] for team in TEAMS})
-    return {"hp": data["hp"], "board": fixed_board, "items": items_data}
+    usernames_data = data.get("usernames", {})
+    usernames = {team: usernames_data.get(team, "") for team in TEAMS}
+    death_order = []
+    for team in data.get("death_order", []):
+        if team in TEAMS and data["hp"].get(team, 0) <= 0 and team not in death_order:
+            death_order.append(team)
+    death_order.extend(
+        team
+        for team in TEAMS
+        if data["hp"].get(team, 0) <= 0 and team not in death_order
+    )
+    return {
+        "hp": data["hp"],
+        "board": fixed_board,
+        "items": items_data,
+        "usernames": usernames,
+        "death_order": death_order,
+    }
 
 
 def save_state() -> None:
@@ -33,6 +50,8 @@ def save_state() -> None:
         "hp": st.session_state.hp,
         "board": st.session_state.board,
         "items": st.session_state["items"], # FIXED bracket notation!
+        "usernames": st.session_state["usernames"],
+        "death_order": st.session_state["death_order"],
     }
     with open(STATE_FILE, "w") as f:
         json.dump(state, f, indent=4)
@@ -58,6 +77,16 @@ def init_session_state() -> None:
             else {team: [] for team in TEAMS}
         )
 
+    if "usernames" not in st.session_state:
+        st.session_state["usernames"] = (
+            loaded["usernames"]
+            if loaded
+            else {team: "" for team in TEAMS}
+        )
+
+    if "death_order" not in st.session_state:
+        st.session_state["death_order"] = loaded["death_order"] if loaded else []
+
     if "mode" not in st.session_state:
         st.session_state.mode = None
 
@@ -79,4 +108,29 @@ def check_for_external_updates() -> None:
             st.session_state.hp = loaded["hp"]
             st.session_state.board = loaded["board"]
             st.session_state["items"] = loaded["items"] # FIXED bracket notation!
+            st.session_state["usernames"] = loaded["usernames"]
+            st.session_state["death_order"] = loaded["death_order"]
         st.rerun()
+
+
+def update_team_hp(team: str, new_hp: int) -> None:
+    new_hp = max(0, new_hp)
+    was_alive = st.session_state.hp[team] > 0
+    st.session_state.hp[team] = new_hp
+
+    if was_alive and new_hp <= 0:
+        if team not in st.session_state["death_order"]:
+            st.session_state["death_order"].append(team)
+    elif new_hp > 0 and team in st.session_state["death_order"]:
+        st.session_state["death_order"].remove(team)
+
+
+def get_ranked_teams() -> list[str]:
+    alive = [team for team in TEAMS if st.session_state.hp[team] > 0]
+    alive_sorted = sorted(
+        alive,
+        key=lambda team: st.session_state.hp[team],
+        reverse=True,
+    )
+    dead_sorted = list(reversed(st.session_state["death_order"]))
+    return alive_sorted + dead_sorted
