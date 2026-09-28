@@ -180,79 +180,57 @@ def render_rules():
     st.markdown("""
     ### General Rules
 
-    1. **Buzz-In:** The first team to buzz in gets the first opportunity to answer.
-    2. **If No Team Answers:** The next question will be selected by the team immediately following the question-selecting team in the MILAN/Menti ranking.
-    3. **Correct Answers:** You may deal damage equal to the question's point value to *any* opposing team.
-    4. **Incorrect Answers:** You lose HP equal to the question's point value.
+    1. **Buzz-In:** Teams buzz in to answer. If the first team to buzz answers incorrectly, the right to answer passes to the next team in buzz order, and so on.
+    2. **If No Team Answers:** If the entire buzz queue is exhausted with no correct answer (or no team buzzes at all), the answer is revealed and no team scores. The next question is picked by the team immediately following the question-selecting team in the MILAN/Menti ranking.
+    3. **Correct Answers:** You deal damage equal to the question's point value to *any* opposing team's Cursed Energy. The team that answered correctly picks the next question.
+    4. **Incorrect Answers:** You lose Cursed Energy equal to the question's point value.
+    5. **Team Size:** Each team must have exactly 6 players. Teams cannot have fewer or more than 6 players.
     """)
 
     st.markdown("""
     ### Damage & Combat Mechanics
 
-    5. **Consecutive Damage Multiplier:** If a team takes damage on consecutive turns, incoming damage reduces by 0.1x per turn (Min: 0.5x). *(Progression: 1.0x → 0.9x → 0.8x → 0.7x → 0.6x → 0.5x)*. Resets to 1.0x after one complete turn of no damage. *(Exception: Does not apply to 1,500-point questions).*
-    6. **Player Sacrifice (Inactivity):** If a team doesn't answer for *n−1* consecutive questions, they must sacrifice one player to remain in the game. Revived players cannot participate in team discussions.
-    7. **Team Elimination:** If a team loses all of its players, they are eliminated.
-    8. **Eliminating a Team (Bounty):**
-       * If the attacking team *had* sacrificed players: All of those sacrificed players are immediately brought back.
-       * If the attacking team *had no* sacrificed players: The attacking team receives one free spin of the Normal Wheel.
+    6. **Consecutive Damage Multiplier:** If a team takes external damage on consecutive Questions, incoming damage reduces by 0.1x per turn (Min: 0.5x). Resets to 1.0x after one complete turn of no external damage taken. Applies *only* to damage a team takes from another team's correct answer it never applies to self-inflicted Cursed Energy loss or CE loss due to items. *(Exception: Does not apply to 1,500-point questions).*
+    7. **Player Sacrifice:** Failing to get an answer chance for n−1 consecutive questions forces a team to sacrifice one player. Wrong answers do not count, and the counter resets to 0 after an eliminations. Sacrificed players cannot participate until revived and are not counted as active.
+    8. **Team Elimination:** A team is eliminated if it has zero active (non-sacrificed) players, or if its Cursed Energy reaches zero.
+    9. **Eliminating a Team (Bounty):** The attacking team immediately has all of its own sacrificed players revived (if any) **and** receives one free Normal Wheel spin.
     """)
 
     st.markdown("""
     ### Sacrifice Mechanics
 
-    9. **Reviving a Player:** Cost = `min(25% of current HP, 400 HP)`. Must have enough HP to pay the full cost.
-    10. **Buy a Wheel Spin:** Cost = `max(5% of current HP, 100 HP)`. Must have enough HP to pay the full cost.
-    11. **Item Limit:** A team can receive a maximum of 5 items through sacrifice mechanics.
+    10. **Reviving a Player:** Cost = `min(25% of current Cursed Energy, 400)`. A team may never pay a cost that would bring its own Cursed Energy to 0 or below.
+    11. **Buy a Wheel Spin:** Cost = `max(5% of current Cursed Energy, 100)`. Same restriction — cannot reduce your own Cursed Energy to 0 or below.
+    12. **Item Limit:** A team can receive a maximum of 5 items obtained through spins bought via Rule 11. Items from any other source (streak spins, bounty spins, special-question spins) are uncapped.
     """)
 
     st.markdown("""
     ### Hints & Question Mechanics
 
-    12. **Purchasing a Hint:** After buzzing in, sacrifice HP for a hint. Cost = **50% of the tier value** (e.g., 200pt → 100 HP).
-    13. **No Point Transfers:** HP/points cannot be transferred between teams (except via specific items).
+    13. **Purchasing a Hint:** After buzzing in, a team may request a hint at a cost of 50% of the tier value.
+    14. **No Transfers:** Cursed Energy cannot be transferred between teams (except via specific items).
     """)
 
     st.markdown("""
     ### Streaks & Special Buffs
 
-    14. **Three-Question Streak:** 3 correct answers in a row = 1 Free Wheel Spin (Normal or Hell).
-    15. **Last Stand Buff:** If only 1 player remains in a team, they gain **+500 HP** for every correct answer (in addition to normal effects).
+    15. **Three-Question Streak:** 3 consecutive questions answered correctly by the same team = 1 free Wheel Spin (Normal or Hell).
+    16. **Last Stand Buff:** If only 1 player remains in a team, they gain **+500 Cursed Energy** for every correct answer (in addition to normal effects).
     """)
 
     st.markdown("""
     ### Items & Wheel Mechanics
 
-    16. **Using Items:** Use immediately or store in inventory (unless restricted).
-    17. **Item Trades:** All item trades must be discussed with and approved by Kogane.
-    18. **Special Wheel Questions:** Certain questions award a Normal Wheel spin (if correct) or force a Hell Wheel spin (if incorrect).
+    17. **Using Items:** Use immediately or store in inventory (except for some items).
+    18. **Communication & Item Trades:** All inter-team communication, alliances, and item trades must be messaged to and approved by Kogane, who acts as mediator.
+    19. **Special Wheel Questions:** Certain questions award a Normal Wheel spin (if correct) or force a Hell Wheel spin (if incorrect).
     """)
 
     st.markdown("""
     ### Leader & Comeback Mechanics
 
-    19. **First-Place Penalty:** The 1st place team takes **20% increased damage** (1.2x) from attacks. 
-    20. **Boss Bounty:** Eliminating the 1st place team awards **2 Normal Wheel spins** instead of 1.
-    """)
-
-    st.markdown("""
-    ### Quick Reference
-
-    | Mechanic | Rule |
-    | :--- | :--- |
-    | **Starting / Max HP** | 4,000 HP |
-    | **Question Tiers** | 200–1,500 |
-    | **Correct Answer** | Deal tier damage to an opposing team |
-    | **Wrong Answer** | Lose tier damage |
-    | **Consecutive Damage** | Multiplier decreases by 0.1, min 0.5x (Resets after 1 safe turn) |
-    | **3 Correct in a Row** | Free Normal Wheel spin |
-    | **No Answer for n−1 Qs**| Sacrifice 1 player |
-    | **Eliminate a Team** | Revive sacrificed players OR free Normal Wheel spin |
-    | **Hint** | Costs 50% of question tier |
-    | **Revive Player** | Costs min(25% HP, 400 HP) |
-    | **Wheel Spin (Sacrifice)**| Costs max(5% HP, 100 HP) |
-    | **Top HP Team** | Takes 20% increased damage |
-    | **Eliminate Top Team** | 2 Normal Wheel spins |
-    | **Last Stand** | +500 HP per correct answer (1 player remaining) |
+    20. **First-Place Penalty:** The 1st place team (per the live leaderboard) takes **10% increased damage** (1.1x) from external attacks.
+    21. **Boss Bounty:** Eliminating the 1st place team awards **2 Normal Wheel spins** instead of 1, in addition to the player-revival from Rule 9.
     """)
 
 def render_items_guide():
