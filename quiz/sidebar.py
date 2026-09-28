@@ -3,7 +3,11 @@ from quiz.config import TEAMS, TEAM_COLORS
 from quiz.components import hp_bar_html, generate_credentials_file
 from quiz.state import get_ranked_teams, save_state, update_team_hp
 
-ITEM_DESCRIPTIONS = {
+# ── Item catalogue ────────────────────────────────────────────────────────────
+# Items are grouped by the wheel they come from. The Items Guide tab renders
+# NORMAL_WHEEL_ITEMS in green and HELL_WHEEL_ITEMS in red.
+
+NORMAL_WHEEL_ITEMS = {
     "Revival Blessing": "Revives a dead teammate.",
     "Heal 400": "Restores 400 HP.",
     "Poison": "Poisons another team; they take an extra 6.25% HP for every wrong answer. It is removed if they answer any question correctly.",
@@ -18,8 +22,27 @@ ITEM_DESCRIPTIONS = {
     "Kazuma’s hand": "Steal another team's item.",
     "Truck-kun’s insurance payout": "When receiving lethal damage, Isekai one teammate to survive with 1000 HP. The teammate can never be revived.",
     "Shinigami Eyes": "Sacrifice 50% of your current HP to 'write down' a team's name. Their next incorrect answer penalty is multiplied by 2.5x.",
-    "Uno Reverse": "Reflect all items.",
+    "Uno Reverse": "Reflect all damage.",
 }
+
+HELL_WHEEL_ITEMS = {
+    "Excalibur": "Forces another team to press the buzzer first. Will overlook any other buzzers. If they get the correct answer, they get to deal 25% more damage.",
+    "Heal 1HP": "Heals exactly 1 HP.",
+    "Swap HP": "Swap HP with any team of your choice (to be used immediately).",
+    "Critical hit": "Lose 10% HP.",
+    "Stub your toe": "Lose exactly 1 HP.",
+    "Mahoraga’s Wheel": "A player activates this right when a category is selected. For the rest of the game, that player has \"adapted\" to that specific category; they take half damage from any attacks originating from that column. (Only 1 exists).",
+    "Freeze": "Team cannot buzz on the next question.",
+    "Gambler’s Domain": "Flip a coin: heads = +50% damage, tails = −50% damage on your next attack.",
+    "Explosion": "Deal 50% of your current HP as damage to another team. You also lose that amount. FORCED INSTANT USE.",
+    "Chaos": "A die is rolled; each roll has some effect:<br>• 1: All damage is reduced by 50% for the entire game for that team. Explicit damage.<br>• 2: All items disappear.<br>• 3: All damage is increased by 50% for the entire game except for the team that got the item.<br>• 4: The team loses 3 players immediately.<br>• 5: Normal Wheel disappears from the game.<br>• 6: Every team has their HP averaged.",
+    "Idle Death Gamble": "Flip three coins. 3 Heads → +1500 HP, 2 Heads → +500 HP, 1 Head → −500 HP, 0 Heads → −1500 HP.",
+    "Rumbling": "Can only be activated if your team drops below 1,000 HP. Deal 400 flat damage to every other team on the board. One-time use only.",
+}
+
+# Combined lookup (Normal Wheel first, then Hell Wheel) — used by the admin
+# item dropdown so every item can be assigned to a team.
+ITEM_DESCRIPTIONS = {**NORMAL_WHEEL_ITEMS, **HELL_WHEEL_ITEMS}
 
 PREMADE_ITEMS = list(ITEM_DESCRIPTIONS.keys())
 

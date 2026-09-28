@@ -30,7 +30,7 @@ from quiz.state import (
     save_state,
 )
 from quiz.styles import inject_css
-from quiz.sidebar import render_sidebar, ITEM_DESCRIPTIONS
+from quiz.sidebar import render_sidebar, NORMAL_WHEEL_ITEMS, HELL_WHEEL_ITEMS
 from quiz.board import render_board
 
 # ── 1. Inject CSS ─────────────────────────────────────────────────────────────
@@ -207,7 +207,7 @@ def render_rules():
     st.markdown("""
     ### Hints & Question Mechanics
 
-    13. **Purchasing a Hint:** After buzzing in, a team may request a hint at a cost of 50% of the tier value.
+    13. **Purchasing a Hint:** After buzzing in, a team may request a hint at a cost of 50% of the tier value.(Max 2 per team)
     14. **No Transfers:** Cursed Energy cannot be transferred between teams (except via specific items).
     """)
 
@@ -233,20 +233,57 @@ def render_rules():
     21. **Boss Bounty:** Eliminating the 1st place team awards **2 Normal Wheel spins** instead of 1, in addition to the player-revival from Rule 9.
     """)
 
+def _render_item_cards(items: dict, accent: str) -> None:
+    """Renders each item as a card with a coloured left border."""
+    for item, desc in items.items():
+        st.markdown(
+            f"<div style='border-left: 4px solid {accent}; background: {accent}1a; "
+            f"padding: 10px 14px; margin-bottom: 10px; border-radius: 0 4px 4px 0;'>"
+            f"<div style='font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 1.1rem; "
+            f"color: #e6dfd6;'>{item}</div>"
+            f"<div style='font-size: 0.95rem; color: #a1a1aa; margin-top: 3px; line-height: 1.45;'>{desc}</div>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
+
+
+def _render_wheel_header(title: str, subtitle: str, count: int, accent: str) -> None:
+    """Renders a coloured banner above a wheel's item list."""
+    st.markdown(
+        f"<div style='border-bottom: 2px solid {accent}; padding-bottom: 8px; margin-bottom: 16px;'>"
+        f"<div style='font-family: Cinzel, serif; font-size: 1.6rem; font-weight: 600; "
+        f"letter-spacing: 0.08em; text-transform: uppercase; color: {accent};'>{title} "
+        f"<span style='font-size: 0.9rem; opacity: 0.8;'>({count})</span></div>"
+        f"<div style='font-size: 0.85rem; color: #a1a1aa; margin-top: 2px;'>{subtitle}</div>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+
 def render_items_guide():
     st.markdown(
         "<h1 style='color: #d8c9c0; font-family: Cinzel, serif; text-align: center; font-size: 3.2rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 30px;'> Culling Game Item Guide</h1>", 
         unsafe_allow_html=True
     )
-    st.markdown("A complete list of special items, abilities, and curses available in the Milan Culling Game:")
+    st.markdown("A complete list of special items, abilities, and curses available in the Culling Games")
     st.divider()
 
-    for item, desc in ITEM_DESCRIPTIONS.items():
-        st.markdown(
-            f"**{item}**<br><span style='font-size: 0.95rem; color: #a1a1aa;'>{desc}</span>", 
-            unsafe_allow_html=True
+    NORMAL_COLOR = "#4CAF50"  # green
+    HELL_COLOR = "#E53935"    # red
+
+    normal_col, hell_col = st.columns(2, gap="large")
+
+    with normal_col:
+        _render_wheel_header(
+            "Normal Wheel", "Beneficial items", len(NORMAL_WHEEL_ITEMS), NORMAL_COLOR
         )
-        st.write("")
+        _render_item_cards(NORMAL_WHEEL_ITEMS, NORMAL_COLOR)
+
+    with hell_col:
+        _render_wheel_header(
+            "Hell Wheel", "Risky, chaotic, or harmful items", len(HELL_WHEEL_ITEMS), HELL_COLOR
+        )
+        _render_item_cards(HELL_WHEEL_ITEMS, HELL_COLOR)
 
 def render_team_dashboard(team_name):
     st.markdown(
