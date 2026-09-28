@@ -107,7 +107,7 @@
                 },
                 {
                     "ce_value": 1000,
-                    "question_text": "In Evangelion, approximately how long do Asuka and Rei stand silently together in the elevator before speaking? (get within 5 seconds).\nAlso, what episode did this happen in? (BONUS Question, Reward: Wheel Spin)",
+                    "question_text": "In Evangelion, approximately how long do Asuka and Rei stand silently together in the elevator before speaking? (get within 5 seconds).\nAlso, what episode did this happen in?",
                     "question_media_type": "photo",
                     "question_media_url": "Evangelion.jpg",
                     "answer": "About 53 seconds & episode 22",

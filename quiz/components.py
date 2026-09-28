@@ -9,7 +9,7 @@ import streamlit as st
 import os
 import base64
 
-from quiz.config import MAX_CE, ADMIN_PASSWORD, HOSTER_PASSWORD, TEAM_PASSWORDS, TEAMS
+from quiz.config import MAX_CE, ADMIN_PASSWORD, HOSTER_PASSWORD, TEAM_PASSWORDS, TEAMS, is_bonus
 from quiz.state import save_state
 from quiz.questions import load_questions, get_question
 
@@ -136,6 +136,18 @@ def show_question(category: str, tier: int) -> None:
                 st.rerun()
 
         return
+
+    if is_bonus(category, tier):
+        st.markdown(
+            "<div style='background: rgba(181, 132, 42, 0.16); "
+            "border: 1px solid #c89b3c; border-left: 4px solid #d6a945; "
+            "padding: 12px 16px; margin: 0 0 20px 0; "
+            "font-family: Rajdhani, sans-serif; color: #f0c96a; "
+            "font-size: 1.1rem; font-weight: 700; text-align: center;'>"
+            "BONUS QUESTION - Correct: Normal Wheel spin | Wrong: Hell Wheel spin"
+            "</div>",
+            unsafe_allow_html=True,
+        )
 
     # --------------------------------------------------
     # QUESTION DATA

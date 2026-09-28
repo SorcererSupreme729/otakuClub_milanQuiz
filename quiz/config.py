@@ -30,6 +30,37 @@ CATEGORIES = [
 
 TIERS = [200, 400, 600, 800, 1000, 1500]
 
+# Edit only this list to choose which category/tier pairs are bonus questions.
+BONUS_QUESTIONS = [
+    ("Quotes", 400), ("Quotes", 800),
+    ("I can't read", 400), ("I can't read", 800),
+    ("Where is Zoro?", 600), ("Where is Zoro?", 1000),
+    ("Where are the pixels?????", 400), ("Where are the pixels?????", 800),
+    ("Inumaki's Spotify playlist", 600), ("Inumaki's Spotify playlist", 1000),
+    ("Japanese Culture", 600), ("Japanese Culture", 1000),
+    ("Pee Pee poo poo hard", 1000),
+    ("Truck Kun's hitlist", 1000),
+    ("Chika Fujiwara photo", 800),
+]
+
+
+def is_bonus(category: str, tier: int) -> bool:
+    """Return whether a category/tier pair is configured as a bonus question."""
+    category_target = str(category).strip().casefold()
+
+    for bonus_category, bonus_tier in BONUS_QUESTIONS:
+        if str(bonus_category).strip().casefold() != category_target:
+            continue
+
+        try:
+            if int(bonus_tier) == int(tier):
+                return True
+        except (TypeError, ValueError):
+            if str(bonus_tier).strip() == str(tier).strip():
+                return True
+
+    return False
+
 # ── Teams ────────────────────────────────────────────────────────────────────
 TEAMS = [
     "Team 1", "Team 2", "Team 3", "Team 4",

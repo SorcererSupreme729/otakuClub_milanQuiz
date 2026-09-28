@@ -223,7 +223,7 @@ def render_rules():
 
     17. **Using Items:** Use immediately or store in inventory (except for some items).
     18. **Communication & Item Trades:** All inter-team communication, alliances, and item trades must be messaged to and approved by Kogane, who acts as mediator.
-    19. **Special Wheel Questions:** Certain questions award a Normal Wheel spin (if correct) or force a Hell Wheel spin (if incorrect).
+    19. **Bonus Questions:** Certain questions are marked as Bonus Questions. If the team answering a bonus question is correct, they receive a free Normal Wheel spin. If they are wrong, they are forced to take a Hell Wheel spin (in addition to the normal incorrect-answer penalty).
     """)
 
     st.markdown("""
