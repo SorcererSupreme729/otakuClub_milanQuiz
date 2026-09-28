@@ -1,7 +1,7 @@
 import streamlit as st
 from quiz.config import TEAMS, TEAM_COLORS
-from quiz.components import hp_bar_html, generate_credentials_file
-from quiz.state import get_ranked_teams, save_state, update_team_hp
+from quiz.components import ce_bar_html, generate_credentials_file
+from quiz.state import get_ranked_teams, save_state, update_team_ce
 
 # ── Item catalogue ────────────────────────────────────────────────────────────
 # Items are grouped by the wheel they come from. The Items Guide tab renders
@@ -9,35 +9,35 @@ from quiz.state import get_ranked_teams, save_state, update_team_hp
 
 NORMAL_WHEEL_ITEMS = {
     "Revival Blessing": "Revives a dead teammate.",
-    "Heal 400": "Restores 400 HP.",
-    "Poison": "Poisons another team; they take an extra 6.25% HP for every wrong answer. It is removed if they answer any question correctly.",
+    "Heal 400": "Restores 400 CE.",
+    "Poison": "Poisons another team; they take an extra 6.25% CE for every wrong answer. It is removed if they answer any question correctly.",
     "Barrier": "Nullifies any explicit damage dealt (1 time use only).",
     "Rocky helmet": "The team that deals damage to the team with a rocky helmet will take half the damage. Breaks after 2 uses.",
-    "Landmine": "Allows a team to place a landmine on one question. If any team chooses that question, they take 400 HP worth of damage.",
+    "Landmine": "Allows a team to place a landmine on one question. If any team chooses that question, they take 400 CE worth of damage.",
     "Black Flash": "Activate after buzzing correctly, before dealing damage. Flip a coin: Win = 1.2x damage, Lose = 0.8x damage.",
-    "Leech Seed": "Target team loses 100 HP for 4 turns, and your team heals that amount.",
+    "Leech Seed": "Target team loses 100 CE for 4 turns, and your team heals that amount.",
     "Domain": "The team that set up a domain on the question is immune to any damage from the question. (Only 3 exist).",
-    "Focus Sash": "If an attack would reduce you to 0 HP, you survive at 1 HP. One use only.",
-    "Life Drain": "Every team except you loses 10% of their current HP. If they have less than 200HP, they lose 200HP instead.",
+    "Focus Sash": "If an attack would reduce you to 0 CE, you survive at 1 CE. One use only.",
+    "Life Drain": "Every team except you loses 10% of their current CE. If they have less than 200CE, they lose 200CE instead.",
     "Kazuma’s hand": "Steal another team's item.",
-    "Truck-kun’s insurance payout": "When receiving lethal damage, Isekai one teammate to survive with 1000 HP. The teammate can never be revived.",
-    "Shinigami Eyes": "Sacrifice 50% of your current HP to 'write down' a team's name. Their next incorrect answer penalty is multiplied by 2.5x.",
+    "Truck-kun’s insurance payout": "When receiving lethal damage, Isekai one teammate to survive with 1000 CE. The teammate can never be revived.",
+    "Shinigami Eyes": "Sacrifice 50% of your current CE to 'write down' a team's name. Their next incorrect answer penalty is multiplied by 2.5x.",
     "Uno Reverse": "Reflect all damage.",
 }
 
 HELL_WHEEL_ITEMS = {
     "Excalibur": "Forces another team to press the buzzer first. Will overlook any other buzzers. If they get the correct answer, they get to deal 25% more damage.",
-    "Heal 1HP": "Heals exactly 1 HP.",
-    "Swap HP": "Swap HP with any team of your choice (to be used immediately).",
-    "Critical hit": "Lose 10% HP.",
-    "Stub your toe": "Lose exactly 1 HP.",
+    "Heal 1CE": "Heals exactly 1 CE.",
+    "Swap CE": "Swap CE with any team of your choice (to be used immediately).",
+    "Critical hit": "Lose 10% CE.",
+    "Stub your toe": "Lose exactly 1 CE.",
     "Mahoraga’s Wheel": "A player activates this right when a category is selected. For the rest of the game, that player has \"adapted\" to that specific category; they take half damage from any attacks originating from that column. (Only 1 exists).",
     "Freeze": "Team cannot buzz on the next question.",
     "Gambler’s Domain": "Flip a coin: heads = +50% damage, tails = −50% damage on your next attack.",
-    "Explosion": "Deal 50% of your current HP as damage to another team. You also lose that amount. FORCED INSTANT USE.",
-    "Chaos": "A die is rolled; each roll has some effect:<br>• 1: All damage is reduced by 50% for the entire game for that team. Explicit damage.<br>• 2: All items disappear.<br>• 3: All damage is increased by 50% for the entire game except for the team that got the item.<br>• 4: The team loses 3 players immediately.<br>• 5: Normal Wheel disappears from the game.<br>• 6: Every team has their HP averaged.",
-    "Idle Death Gamble": "Flip three coins. 3 Heads → +1500 HP, 2 Heads → +500 HP, 1 Head → −500 HP, 0 Heads → −1500 HP.",
-    "Rumbling": "Can only be activated if your team drops below 1,000 HP. Deal 400 flat damage to every other team on the board. One-time use only.",
+    "Explosion": "Deal 50% of your current CE as damage to another team. You also lose that amount. FORCED INSTANT USE.",
+    "Chaos": "A die is rolled; each roll has some effect:<br>• 1: All damage is reduced by 50% for the entire game for that team. Explicit damage.<br>• 2: All items disappear.<br>• 3: All damage is increased by 50% for the entire game except for the team that got the item.<br>• 4: The team loses 3 players immediately.<br>• 5: Normal Wheel disappears from the game.<br>• 6: Every team has their CE averaged.",
+    "Idle Death Gamble": "Flip three coins. 3 Heads → +1500 CE, 2 Heads → +500 CE, 1 Head → −500 CE, 0 Heads → −1500 CE.",
+    "Rumbling": "Can only be activated if your team drops below 1,000 CE. Deal 400 flat damage to every other team on the board. One-time use only.",
 }
 
 # Combined lookup (Normal Wheel first, then Hell Wheel) — used by the admin
@@ -67,7 +67,7 @@ def render_sidebar() -> None:
 
 def _render_admin_sidebar() -> None:
     st.header("⛩️ Colony Overseer")
-    st.caption("Manage cursed energy (HP), items, and healing here.")
+    st.caption("Manage cursed energy (CE), items, and healing here.")
 
     st.download_button(
         label="📄 Download Passwords",
@@ -83,7 +83,7 @@ def _render_admin_sidebar() -> None:
         username = st.session_state["usernames"].get(team, "")
         display_name = f"{team} — {username}" if username else team
         st.markdown(
-            hp_bar_html(display_name, st.session_state.hp[team], color),
+            ce_bar_html(display_name, st.session_state.ce[team], color),
             unsafe_allow_html=True,
         )
 
@@ -94,7 +94,7 @@ def _render_admin_sidebar() -> None:
             )
         with col2:
             if st.button("Apply", key=f"btn_{team}", use_container_width=True):
-                update_team_hp(team, st.session_state.hp[team] + adj_val)
+                update_team_ce(team, st.session_state.ce[team] + adj_val)
                 save_state()
                 st.rerun()
                 
@@ -146,9 +146,9 @@ def _render_admin_sidebar() -> None:
 
     st.divider()
     if st.button("🚨 Reset Entire Game", use_container_width=True):
-        from quiz.config import MAX_HP, TIERS, CATEGORIES
+        from quiz.config import MAX_CE, TIERS, CATEGORIES
 
-        st.session_state.hp = {team: MAX_HP for team in TEAMS}
+        st.session_state.ce = {team: MAX_CE for team in TEAMS}
         st.session_state.board = {cat: {tier: True for tier in TIERS} for cat in CATEGORIES}
         st.session_state["items"] = {team: [] for team in TEAMS}
         st.session_state["death_order"] = []
@@ -168,13 +168,13 @@ def _render_hoster_sidebar() -> None:
     defeated_teams = [
         st.session_state["usernames"].get(team) or team
         for team in TEAMS
-        if st.session_state.hp[team] <= 0
+        if st.session_state.ce[team] <= 0
     ]
     if defeated_teams:
         st.warning(f"Eliminated: {', '.join(defeated_teams)}")
 
     for badge, team in zip(badges, ranked):
-        hp = st.session_state.hp[team]
+        ce = st.session_state.ce[team]
         color = color_map[team]
         username = st.session_state["usernames"].get(team, "")
         display_name = f"{team} — {username}" if username else team
@@ -185,7 +185,7 @@ def _render_hoster_sidebar() -> None:
             f"</div>",
             unsafe_allow_html=True,
         )
-        st.markdown(hp_bar_html(display_name, hp, color), unsafe_allow_html=True)
+        st.markdown(ce_bar_html(display_name, ce, color), unsafe_allow_html=True)
 
 
 def _render_team_sidebar(logged_in_team: str | None) -> None:
@@ -217,6 +217,6 @@ def _render_team_sidebar(logged_in_team: str | None) -> None:
             unsafe_allow_html=True,
         )
         st.markdown(
-            hp_bar_html(display_name, st.session_state.hp[team], color),
+            ce_bar_html(display_name, st.session_state.ce[team], color),
             unsafe_allow_html=True,
         )

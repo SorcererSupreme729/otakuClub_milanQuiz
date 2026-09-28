@@ -36,7 +36,7 @@ TEAMS = [
     "Team 5", "Team 6", "Team 7", "Team 8",
 ]
 
-MAX_HP = 4000
+MAX_CE = 4000
 
 TEAM_COLORS = [
     "#8B0000", "#4A0E0E", "#B7202E", "#6E1414",

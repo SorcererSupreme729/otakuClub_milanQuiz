@@ -14,7 +14,7 @@ CATEGORIES = [
 ]
 TIERS = [200, 400, 600, 800, 1000, 1500]
 TEAMS = ["Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6", "Team 7", "Team 8"]
-MAX_HP = 4000
+MAX_CE = 4000
 
 TEAM_COLORS = [
     "#8B0000", "#4A0E0E", "#B7202E", "#6E1414",
@@ -45,13 +45,13 @@ def load_state():
             data = json.load(f)
             # JSON converts integer keys to strings. We must convert the tier keys back to ints!
             fixed_board = {cat: {int(tier): val for tier, val in tiers.items()} for cat, tiers in data["board"].items()}
-            return {"hp": data["hp"], "board": fixed_board}
+            return {"ce": data["ce"], "board": fixed_board}
     return None
 
 def save_state():
     """Saves the current session state to a neatly formatted JSON file."""
     state = {
-        "hp": st.session_state.hp,
+        "ce": st.session_state.ce,
         "board": st.session_state.board
     }
     with open(STATE_FILE, "w") as f:
@@ -61,11 +61,11 @@ def save_state():
 # 2. Session State Init (With Backend Memory)
 loaded_state = load_state()
 
-if "hp" not in st.session_state:
+if "ce" not in st.session_state:
     if loaded_state:
-        st.session_state.hp = loaded_state["hp"]
+        st.session_state.ce = loaded_state["ce"]
     else:
-        st.session_state.hp = {team: MAX_HP for team in TEAMS}
+        st.session_state.ce = {team: MAX_CE for team in TEAMS}
 
 if "board" not in st.session_state:
     if loaded_state:
@@ -255,13 +255,13 @@ if st.session_state.mode is None:
     st.stop()
 
 
-def hp_bar_html(team, hp, color):
-    pct = max(0, min(100, (hp / MAX_HP) * 100))
+def ce_bar_html(team, ce, color):
+    pct = max(0, min(100, (ce / MAX_CE) * 100))
     return f"""
     <div style="margin: 10px 0px 4px 0px;">
         <div style="display:flex; justify-content:space-between; font-family:'Rajdhani',sans-serif;
                     font-weight:700; color:{color}; font-size:0.95rem; margin-bottom: 4px;">
-            <span>{team}</span><span>{hp} HP</span>
+            <span>{team}</span><span>{ce} CE</span>
         </div>
         <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:8px; overflow:hidden;
                     border:1px solid rgba(255,255,255,0.15);">
@@ -295,9 +295,9 @@ def generate_credentials_file():
 @st.dialog("Question")
 def show_question(category, tier):
     
-    # Huge Header for the Category and HP
+    # Huge Header for the Category and CE
     st.markdown(
-        f"<div style='font-size: 2.2rem; font-family: Cinzel, serif; color: #b7202e; border-bottom: 2px solid #8B0000; padding-bottom: 10px; margin-bottom: 20px;'>{category} — {tier} HP</div>", 
+        f"<div style='font-size: 2.2rem; font-family: Cinzel, serif; color: #b7202e; border-bottom: 2px solid #8B0000; padding-bottom: 10px; margin-bottom: 20px;'>{category} — {tier} CE</div>",
         unsafe_allow_html=True
     )
     
@@ -327,7 +327,7 @@ def show_question(category, tier):
 with st.sidebar:
     if IS_ADMIN:
         st.header("⛩️ Colony Overseer")
-        st.caption("Manage cursed energy (HP), damage, and healing here.")
+        st.caption("Manage cursed energy (CE), damage, and healing here.")
         
         st.download_button(
             label="📄 Download Passwords",
@@ -340,7 +340,7 @@ with st.sidebar:
         st.divider()
 
         for team, color in zip(TEAMS, TEAM_COLORS):
-            st.markdown(hp_bar_html(team, st.session_state.hp[team], color), unsafe_allow_html=True)
+            st.markdown(ce_bar_html(team, st.session_state.ce[team], color), unsafe_allow_html=True)
             
             col1, col2 = st.columns([1.5, 1], gap="small")
             with col1:
@@ -348,13 +348,13 @@ with st.sidebar:
                                            label_visibility="collapsed")
             with col2:
                 if st.button("Apply", key=f"btn_{team}", use_container_width=True):
-                    st.session_state.hp[team] = max(0, st.session_state.hp[team] + adj_val)
-                    save_state() # Instantly saves the new HP to the backend!
+                    st.session_state.ce[team] = max(0, st.session_state.ce[team] + adj_val)
+                    save_state() # Instantly saves the new CE to the backend!
                     st.rerun()
 
         st.divider()
         if st.button("🚨 Reset Entire Game", use_container_width=True):
-            st.session_state.hp = {team: MAX_HP for team in TEAMS}
+            st.session_state.ce = {team: MAX_CE for team in TEAMS}
             st.session_state.board = {cat: {tier: True for tier in TIERS} for cat in CATEGORIES}
             save_state() # Overwrites the backend with a fresh game
             st.rerun()
@@ -369,7 +369,7 @@ with st.sidebar:
             
         st.divider()
         for team, color in zip(TEAMS, TEAM_COLORS):
-            st.markdown(hp_bar_html(team, st.session_state.hp[team], color), unsafe_allow_html=True)
+            st.markdown(ce_bar_html(team, st.session_state.ce[team], color), unsafe_allow_html=True)
 
     st.divider()
     if st.button("🔁 Switch Mode / Log Out", use_container_width=True):
@@ -424,7 +424,7 @@ for i, category in enumerate(CATEGORIES):
         for tier in TIERS:
             is_active = st.session_state.board[category][tier]
             if is_active:
-                if st.button(f"{tier} HP", key=f"{category}_{tier}", use_container_width=True):
+                if st.button(f"{tier} CE", key=f"{category}_{tier}", use_container_width=True):
                     show_question(category, tier)
             else:
                 st.button("✖", key=f"{category}_{tier}_done", disabled=True, use_container_width=True)

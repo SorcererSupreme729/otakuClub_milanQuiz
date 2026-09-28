@@ -30,14 +30,14 @@ def load_questions(path: str = QUESTIONS_PATH) -> dict:
 
 def get_question(data: dict, category: str, tier: int) -> dict | None:
     """
-    Finds the question dict matching a category name and HP tier.
+    Finds the question dict matching a category name and CE tier.
     Matching is case-insensitive and whitespace-tolerant on the category
     name, and tolerant of int/str mismatches on the tier value.
 
     Args:
         data:     The loaded questions database (from load_questions).
         category: Category column label, e.g. "QUOTES".
-        tier:     HP value for the tile, e.g. 200.
+        tier:     CE value for the tile, e.g. 200.
 
     Returns:
         The matching question dict, or None if not found.
@@ -50,12 +50,12 @@ def get_question(data: dict, category: str, tier: int) -> dict | None:
             continue
 
         for q in cat.get("questions", []):
-            hp = q.get("hp_value")
+            ce = q.get("ce_value")
             try:
-                if int(hp) == int(tier):
+                if int(ce) == int(tier):
                     return q
             except (TypeError, ValueError):
-                if str(hp).strip() == str(tier).strip():
+                if str(ce).strip() == str(tier).strip():
                     return q
 
     return None

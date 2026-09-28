@@ -118,7 +118,7 @@ def _render_tier_buttons(category: str) -> None:
         is_active = st.session_state.board[category][tier]
         if is_active:
             if st.button(
-                f"{tier} HP",
+                f"{tier} CE",
                 key=f"{category}_{tier}",
                 use_container_width=True,
             ):

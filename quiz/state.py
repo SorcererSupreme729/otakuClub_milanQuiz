@@ -9,7 +9,7 @@ import os
 
 import streamlit as st
 
-from quiz.config import STATE_FILE, TEAMS, TIERS, CATEGORIES, MAX_HP
+from quiz.config import STATE_FILE, TEAMS, TIERS, CATEGORIES, MAX_CE
 
 
 def load_state() -> dict | None:
@@ -29,15 +29,15 @@ def load_state() -> dict | None:
     usernames = {team: usernames_data.get(team, "") for team in TEAMS}
     death_order = []
     for team in data.get("death_order", []):
-        if team in TEAMS and data["hp"].get(team, 0) <= 0 and team not in death_order:
+        if team in TEAMS and data["ce"].get(team, 0) <= 0 and team not in death_order:
             death_order.append(team)
     death_order.extend(
         team
         for team in TEAMS
-        if data["hp"].get(team, 0) <= 0 and team not in death_order
+        if data["ce"].get(team, 0) <= 0 and team not in death_order
     )
     return {
-        "hp": data["hp"],
+        "ce": data["ce"],
         "board": fixed_board,
         "items": items_data,
         "usernames": usernames,
@@ -47,7 +47,7 @@ def load_state() -> dict | None:
 
 def save_state() -> None:
     state = {
-        "hp": st.session_state.hp,
+        "ce": st.session_state.ce,
         "board": st.session_state.board,
         "items": st.session_state["items"], # FIXED bracket notation!
         "usernames": st.session_state["usernames"],
@@ -60,8 +60,8 @@ def save_state() -> None:
 def init_session_state() -> None:
     loaded = load_state()
 
-    if "hp" not in st.session_state:
-        st.session_state.hp = loaded["hp"] if loaded else {team: MAX_HP for team in TEAMS}
+    if "ce" not in st.session_state:
+        st.session_state.ce = loaded["ce"] if loaded else {team: MAX_CE for team in TEAMS}
 
     if "board" not in st.session_state:
         st.session_state.board = (
@@ -105,7 +105,7 @@ def check_for_external_updates() -> None:
         st.session_state.state_mtime = current_mtime
         loaded = load_state()
         if loaded:
-            st.session_state.hp = loaded["hp"]
+            st.session_state.ce = loaded["ce"]
             st.session_state.board = loaded["board"]
             st.session_state["items"] = loaded["items"] # FIXED bracket notation!
             st.session_state["usernames"] = loaded["usernames"]
@@ -113,23 +113,23 @@ def check_for_external_updates() -> None:
         st.rerun()
 
 
-def update_team_hp(team: str, new_hp: int) -> None:
-    new_hp = max(0, new_hp)
-    was_alive = st.session_state.hp[team] > 0
-    st.session_state.hp[team] = new_hp
+def update_team_ce(team: str, new_ce: int) -> None:
+    new_ce = max(0, new_ce)
+    was_alive = st.session_state.ce[team] > 0
+    st.session_state.ce[team] = new_ce
 
-    if was_alive and new_hp <= 0:
+    if was_alive and new_ce <= 0:
         if team not in st.session_state["death_order"]:
             st.session_state["death_order"].append(team)
-    elif new_hp > 0 and team in st.session_state["death_order"]:
+    elif new_ce > 0 and team in st.session_state["death_order"]:
         st.session_state["death_order"].remove(team)
 
 
 def get_ranked_teams() -> list[str]:
-    alive = [team for team in TEAMS if st.session_state.hp[team] > 0]
+    alive = [team for team in TEAMS if st.session_state.ce[team] > 0]
     alive_sorted = sorted(
         alive,
-        key=lambda team: st.session_state.hp[team],
+        key=lambda team: st.session_state.ce[team],
         reverse=True,
     )
     dead_sorted = list(reversed(st.session_state["death_order"]))

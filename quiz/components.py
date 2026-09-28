@@ -1,7 +1,7 @@
 """
 components.py
 -------------
-Reusable UI components: the HP bar, the question dialog, and the
+Reusable UI components: the CE bar, the question dialog, and the
 credentials file generator.
 """
 
@@ -9,30 +9,30 @@ import streamlit as st
 import os
 import base64
 
-from quiz.config import MAX_HP, ADMIN_PASSWORD, HOSTER_PASSWORD, TEAM_PASSWORDS, TEAMS
+from quiz.config import MAX_CE, ADMIN_PASSWORD, HOSTER_PASSWORD, TEAM_PASSWORDS, TEAMS
 from quiz.state import save_state
 from quiz.questions import load_questions, get_question
 
 
-def hp_bar_html(team: str, hp: int, color: str) -> str:
+def ce_bar_html(team: str, ce: int, color: str) -> str:
     """
-    Returns an HTML string that renders a labelled, coloured HP progress bar
+    Returns an HTML string that renders a labelled, coloured CE progress bar
     for a single team.
 
     Args:
         team:  Team display name.
-        hp:    Current hit-point value.
+        ce:    Current hit-point value.
         color: CSS colour string (hex / rgb) used for the bar and label.
 
     Returns:
         Raw HTML string ready for ``st.markdown(..., unsafe_allow_html=True)``.
     """
-    pct = max(0, min(100, (hp / MAX_HP) * 100))
+    pct = max(0, min(100, (ce / MAX_CE) * 100))
     return f"""
     <div style="margin: 10px 0px 4px 0px;">
         <div style="display:flex; justify-content:space-between; font-family:'Rajdhani',sans-serif;
                     font-weight:700; color:{color}; font-size:0.95rem; margin-bottom: 4px;">
-            <span>{team}</span><span>{hp} HP</span>
+            <span>{team}</span><span>{ce} CE</span>
         </div>
         <div style="background:rgba(255,255,255,0.08); border-radius:4px; height:8px; overflow:hidden;
                     border:1px solid rgba(255,255,255,0.15);">
@@ -103,7 +103,7 @@ def show_question(category: str, tier: int) -> None:
                     f"<div style='text-align: center; font-family: Cinzel, serif; color: #9b7aab; "
                     f"font-size: 1.1rem; font-weight: 600; margin-top: 5px; margin-bottom: 20px; "
                     f"letter-spacing: 0.08em; border-bottom: 2px solid rgba(90, 62, 107, 0.6); padding-bottom: 8px;'>"
-                    f"{tier} HP</div>",
+                    f"{tier} CE</div>",
                     unsafe_allow_html=True,
                 )
         except Exception:
@@ -112,7 +112,7 @@ def show_question(category: str, tier: int) -> None:
                 f"color: #9b7aab; border-bottom: 2px solid rgba(90, 62, 107, 0.6); "
                 f"padding-bottom: 10px; margin-bottom: 20px; "
                 f"text-shadow: 0 0 15px rgba(90, 62, 107, 0.4);'>"
-                f"{category} — {tier} HP</div>",
+                f"{category} — {tier} CE</div>",
                 unsafe_allow_html=True,
             )
     else:
@@ -121,7 +121,7 @@ def show_question(category: str, tier: int) -> None:
             f"color: #9b7aab; border-bottom: 2px solid rgba(90, 62, 107, 0.6); "
             f"padding-bottom: 10px; margin-bottom: 20px; "
             f"text-shadow: 0 0 15px rgba(90, 62, 107, 0.4);'>"
-            f"{category} — {tier} HP</div>",
+            f"{category} — {tier} CE</div>",
             unsafe_allow_html=True,
         )
 

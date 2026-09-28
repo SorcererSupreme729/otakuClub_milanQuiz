@@ -131,7 +131,7 @@ def _sync_watcher() -> None:
         st.session_state.state_mtime = current_mtime
         loaded = load_state()
         if loaded:
-            st.session_state.hp = loaded["hp"]
+            st.session_state.ce = loaded["ce"]
             st.session_state.board = loaded["board"]
             st.session_state["items"] = loaded["items"]
             st.session_state["usernames"] = loaded["usernames"]
@@ -145,7 +145,7 @@ check_for_external_updates()
 
 if st.session_state.mode in TEAMS:
     logged_in_team = st.session_state.mode
-    if st.session_state.hp[logged_in_team] <= 0:
+    if st.session_state.ce[logged_in_team] <= 0:
         st.markdown(
             """
             <div style="
@@ -291,7 +291,7 @@ def render_team_dashboard(team_name):
         unsafe_allow_html=True
     )
     
-    current_hp = st.session_state.hp[team_name]
+    current_ce = st.session_state.ce[team_name]
     
     rank = get_ranked_teams().index(team_name) + 1
     
@@ -299,7 +299,7 @@ def render_team_dashboard(team_name):
     with col1:
         st.markdown(f"<h3 style='color: #c9a0a0;'>🏆 Current Rank: #{rank}</h3>", unsafe_allow_html=True)
     with col2:
-        st.markdown(f"<h3 style='color: #c9a0a0;'>🩸 Cursed Energy: {current_hp} HP</h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='color: #c9a0a0;'>🩸 Cursed Energy: {current_ce} CE</h3>", unsafe_allow_html=True)
     
     st.divider()
     st.markdown("<h3 style='color: #9b7aab; font-family: Cinzel, serif;'>🎒 Cursed Inventory (Items)</h3>", unsafe_allow_html=True)
