@@ -157,12 +157,12 @@
                 },
                 {
                     "ce_value": 800,
-                    "question_text": "This iconic character's backstory draws heavily from notorious historical figures. One inspiration is Henry Avery, who vanished without a trace after becoming the wealthiest trader of his time via a massive naval heist. The more evident inspiration is Olivier Levasseur, who, moments before his execution, hurled a cryptic parchment into the crowd, claiming it held the secret to a —-------------.Identify the character.",
+                    "question_text": "If we define anime as \"things animated in Japan,\" then the 1977 The Hobbit movie qualifies. It was animated by Topcraft, a Japanese studio that later went bankrupt and evolved into \"X\". Though produced by an American company, the animation work was done by the same artists who went on to shape the future of anime under \"Y.\" This connection shows how The Hobbit has roots in Japanese animation, even if it doesn't fit the traditional anime style.\n\nGuess \"X\" and \"Y\".",
                     "question_media_type": "paragraph",
                     "question_media_url": "",
-                    "answer": "Gol D. Roger (One Piece)",
-                    "answer_media_type": "photo",
-                    "answer_media_url": "goldroger.webp"
+                    "answer": "X - Studio Ghibli\nY - Hayao Miyazaki",
+                    "answer_media_type": "paragraph",
+                    "answer_media_url": "ce800_I_can't_read.png"
                 },
                 {
                     "ce_value": 1500,
